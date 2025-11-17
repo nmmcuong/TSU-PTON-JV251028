@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        padding: 20px;
+      }
+
+      .video-card {
+        width: 320px;
+        background-color: white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .thumbnail-container {
+        position: relative;
+        width: 100%;
+        height: auto;
+      }
+
+      .thumbnail-container img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+      }
+
+      .view-count {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.6);
+        color: white;
+        padding: 8px 12px;
+        font-size: 14px;
+        font-weight: bold;
+        border-top-right-radius: 4px;
+      }
+
+      .view-count .icon {
+        margin-right: 4px;
+        font-size: 16px;
+        color: #ff9900;
+      }
+
+      .card-content {
+        padding: 10px 15px;
+      }
+
+      .title {
+        font-size: 20px;
+        font-weight: 800;
+        line-height: 1.3;
+        margin: 0;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="video-card">
+      <div class="thumbnail-container">
+        <img
+          src="./img/cat5.webp"
+          alt="Sao Việt 14/8: Hoài Lâm xuất hiện tỉnh táo, cười rạng rỡ bên bạn gái"
+        />
+        <div class="view-count">
+          <span class="icon"> &#128065; </span>
+          79.174 lượt xem
+        </div>
+      </div>
+
+      <div class="card-content">
+        <h3 class="title">
+          Sao Việt 14/8: Hoài Lâm xuất hiện tỉnh táo, cười rạng rỡ bên bạn gái
+        </h3>
+      </div>
+    </div>
+  </body>
+</html>

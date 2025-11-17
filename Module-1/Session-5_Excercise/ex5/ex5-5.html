@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .fade-block {
+        width: 400px;
+        height: 250px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        color: white;
+        font-size: 48px;
+        font-weight: bold;
+
+        background-color: #787575;
+      }
+
+      .fade-block:hover {
+        transform: scale(0.9) rotate(-30deg); /* Thu nhỏ 5% (0.95 = 95% kích thước gốc) */
+
+        cursor: pointer;
+      }
+
+      /* Thêm kiểu dáng cho body để căn giữa khối nếu cần */
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="fade-block">Ronate</div>
+  </body>
+</html>

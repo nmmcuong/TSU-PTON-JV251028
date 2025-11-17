@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* Thiết lập cơ bản cho trang */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+      }
+
+      .card-container {
+        width: 350px;
+        height: 550px;
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Hình ảnh nền */
+      .card-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      /* Lớp phủ Gradient Tối màu */
+      .dark-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        /* Tạo gradient mờ dần từ dưới lên */
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0) 50%,
+          /* Phần trên trong suốt */ rgba(0, 0, 0, 0.6) 80%,
+          /* Bắt đầu tối dần */ rgba(0, 0, 0, 0.8) 100% /* Phần dưới tối hơn */
+        );
+
+        /* Căn chỉnh nội dung */
+        display: flex;
+        align-items: flex-end; /* Đẩy nội dung xuống cuối */
+        padding: 25px;
+        box-sizing: border-box;
+      }
+
+      /* Nội dung Văn bản */
+      .content-text {
+        color: white;
+        width: 100%;
+      }
+
+      .main-title {
+        font-size: 30px;
+        font-weight: 800; /* Rất đậm */
+        margin: 0 0 10px 0;
+      }
+
+      .description {
+        font-size: 16px;
+        margin: 0 0 20px 0;
+        line-height: 1.5;
+        opacity: 0.9;
+      }
+
+      /* Nút Explore */
+      .explore-button {
+        display: inline-flex; /* Quan trọng để căn chỉnh icon */
+        align-items: center;
+        text-decoration: none; /* Bỏ gạch chân mặc định của thẻ <a> */
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+      .arrow-icon {
+        margin-left: 8px;
+        font-size: 18px;
+        /* Ký tự unicode cho mũi tên bên phải (→) */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card-container">
+      <img
+        src="./img/cat5.webp"
+        alt="Hai cô gái với áo đồng phục RikkeiSoft"
+        class="card-image"
+      />
+
+      <div class="dark-overlay">
+        <div class="content-text">
+          <h2 class="main-title">Latest Thinking</h2>
+          <p class="description">
+            Equip yourself with RikkeiSoft latest knowledge.
+          </p>
+
+          <a href="#" class="explore-button">
+            Explore <span class="arrow-icon">&#x27A4;</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

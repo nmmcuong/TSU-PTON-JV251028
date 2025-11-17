@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* Thiết lập cơ bản cho trang */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+      }
+
+      /* Định kiểu cho toàn bộ Card */
+      .service-card {
+        width: 350px; /* Kích thước thẻ */
+        height: 350px;
+        position: relative; /* Quan trọng để định vị các lớp phủ và nội dung */
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      /* Hình ảnh nền */
+      .card-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Đảm bảo hình ảnh lấp đầy container */
+        display: block;
+      }
+
+      /* Lớp phủ tối màu (Overlay) */
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        /* Tạo lớp phủ tối màu với độ trong suốt */
+        background: rgba(0, 0, 0, 0.4);
+        /* Hiệu ứng lớp mờ mờ cho hình ảnh (giống như trong hình) */
+        backdrop-filter: blur(2px);
+
+        /* Căn chỉnh nội dung */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 15px;
+        box-sizing: border-box;
+      }
+
+      /* Thẻ Danh mục (AUTOMOTIVE) */
+      .category-tag {
+        background-color: #e63946; /* Màu đỏ */
+        color: white;
+        font-size: 12px;
+        font-weight: bold;
+        padding: 4px 8px;
+        border-radius: 3px;
+        width: fit-content; /* Chỉ rộng bằng nội dung */
+        text-transform: uppercase;
+      }
+
+      /* Khu vực Biểu tượng/Nút điều hướng */
+      .controls {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .control-item {
+        width: 40px;
+        height: 40px;
+        background-color: rgba(255, 255, 255, 0.1); /* Màu nền trong suốt */
+        color: white;
+        border: 1px solid white;
+        border-radius: 5px;
+        margin-bottom: 20px; /* Khoảng cách giữa các nút */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+        font-weight: bold;
+        backdrop-filter: blur(4px); /* Lớp mờ cho các nút để nổi bật */
+      }
+
+      /* Định kiểu riêng cho icon bánh răng (gear) */
+      .gear-icon {
+        background-color: #e63946; /* Màu đỏ nổi bật */
+        border: none;
+        font-size: 24px;
+      }
+
+      /* Phần Văn bản (Title và Subtitle) */
+      .text-content {
+        color: white;
+        align-self: flex-start; /* Căn lề trái dưới */
+      }
+
+      .main-title {
+        font-size: 22px;
+        font-weight: bold;
+        margin: 0 0 5px 0;
+      }
+
+      .subtitle {
+        font-size: 14px;
+        margin: 0;
+        opacity: 0.8;
+      }
+      /* Định kiểu cho đường kẻ nối */
+      .connector-line {
+        width: 2px; /* Độ dày của đường kẻ */
+        height: 10px; /* Chiều dài của đường kẻ */
+        background-color: white;
+        margin: 5px 0; /* Khoảng cách trên dưới để nối giữa các nút */
+        z-index: 1; /* Đảm bảo nó nằm dưới các nút */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="service-card">
+      <img src="./img/cat5.webp" alt="Thợ sửa chữa xe hơi" class="card-image" />
+
+      <div class="overlay">
+        <div class="category-tag">AUTOMOTIVE</div>
+
+        <div class="controls">
+          <div class="control-item gear-icon">⚙️</div>
+          <div class="control-item label-a">A</div>
+          <div class="control-item label-b">B</div>
+        </div>
+
+        <div class="text-content">
+          <h2 class="main-title">Car Repairing Tracking</h2>
+          <p class="subtitle">All Platform</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
