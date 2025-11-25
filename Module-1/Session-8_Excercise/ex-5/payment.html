@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Xác Nhận Đặt Phòng - TripGuide</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="top-nav-bar">
+      <div class="logo-area">
+        <i><img src="./resource/logo.png" alt="" />
+      </div>
+      <div class="user-info">
+        USD | <i class="fa-solid fa-user-circle"></i> Delowar
+      </div>
+    </header>
+
+    <main class="main-content-grid">
+        
+      <section class="payment-section">
+        <div class="nav-links">Home  > Hotel list  > Hotel detail  >  <a >Confirm and pay</a></div>
+        <h1>Confirm your Book</h1>
+        <hr>
+
+        <div class="your-tour">
+    <h2>Your tour</h2>
+
+    <div class="info-block">
+        <div class="info-details">
+            <span class="info-label">Date</span>
+            <span class="info-value ">June 27 - 30, 2020</span>
+        </div>
+        <span class="fa-solid fa-pencil"></span> 
+    </div>
+
+    <div class="info-block">
+        <div class="info-details">
+            <span class="info-label">Traveller</span>
+            <span class="info-value">1 Passenger</span>
+        </div>
+        <span class="fa-solid fa-pencil"></span> 
+    </div>
+    </div>
+
+        <div class="credit-card-section">
+          <h3>Creadit Cards</h3>
+          <div class="card-icons">
+            <img
+              src="./resource/mayment card.png"
+              alt="Visa"
+              class="card-logo visa"
+            />
+            <img
+              src="./resource/card 1.png"
+              alt="Paypal"
+              class="card-logo paypal"
+            />
+            <img
+              src="./resource/card 2.png"
+              alt="Amex"
+              class="card-logo amex"
+            />
+          </div>
+
+          <div class="saved-cards">
+            <div class="card-item blue-card">
+              <p>8948 xxxx xxxx 7894</p>
+              <p class="holder-name">Holder Name</p>
+              <i class="fa-solid fa-ellipsis"></i>
+            </div>
+            <div class="card-item green-card">
+              <p>8948 xxxx xxxx 7894</p>
+              <p class="holder-name">Holder Name</p>
+              <i class="fa-brands fa-cc-visa"></i>
+            </div>
+          </div>
+
+          <form class="payment-form">
+            <div class="form-row">
+              <div class="input-group full-width">
+                <label for="card-number">Card Number</label>
+                <input
+                  type="text"
+                  id="card-number"
+                  value="5864 6241 4444 3333"
+                />
+                <i class="fa-solid fa-check-circle check-icon"></i>
+              </div>
+            </div>
+            <div class="form-row split-inputs">
+              <div class="input-group half-width">
+                <label for="expiry">Expiry Date</label>
+                <input type="text" id="expiry" placeholder="MM/YY" />
+                <input type="checkbox" id="save-card" checked />
+                <label for="save-card">Save Card</label>
+              </div>
+              <div class="input-group half-width">
+                <label for="cvc">CVC/CVV</label>
+                <input type="text" id="cvc" placeholder="****" />
+              </div>
+            </div>
+            
+
+            <button type="submit" class="btn-confirm">
+              Confirm and reserve
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <section class="booking-summary">
+        <div class="hotel-info">
+          <h4>Switzerland Hotels and Places to Stay</h4>
+          <p class="rating">⭐️ <b>4.8</b> <a class="ratingView">(122 reviews)</a></p>
+          <img
+            src="./resource/daniel-corneschi-N6HTCyN50p0-unsplash 1.png"
+            alt="Hotel View"
+            class="hotel-image"
+          />
+          <p class="room-type">1 bedroom + 1 private room</p>
+
+          <div class="check-dates">
+            <div class="check-in">
+              Check in
+              <p>June 27, 2020</p>
+            </div>
+            <div class="check-out">
+              Check out
+              <p>June 30, 2020</p>
+            </div>
+          </div>
+          <p class="guests">2 guests</p>
+        </div>
+
+        <div class="booked-details">
+          <h4>Booked details</h4>
+          <div class="detail-line">
+            <span>$119 * 5 nights</span>
+            <span>$833</span>
+          </div>
+          <div class="detail-line">
+            <span>Occupancy text and fee</span>
+            <span>-$125</span>
+          </div>
+          <div class="detail-line">
+            <span>Service Free</span>
+            <span>$103</span>
+          </div>
+          <div class="detail-line total">
+            <span>Total</span>
+            <span>$833</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <section class="pro-offers-section">
+      <div class="offer-content">
+        <div class="offer-text">
+          <h2>Get our pro offers</h2>
+          <p>Create a visual identity for your company and an even brand.</p>
+        </div>
+        <div class="offer-form">
+          <input type="email" placeholder="Type your email here" />
+          <button>Subscribe</button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="footer-col col-about">
+        <div class="footer-logo">
+          <img src="./resource/logo.png" alt="">
+        </div>
+        <p>
+          This is the team that specializes in interior design... [truncated]
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Services</h5>
+          <ul>
+            <li>Travel Booking</li>
+            <li>Flight Booking</li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Support</h5>
+          <ul>
+            <li>Account</li>
+            <li>Legal</li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Business</h5>
+          <ul>
+            <li>Success</li>
+            <li>About Locato</li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
