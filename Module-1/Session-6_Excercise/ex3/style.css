@@ -1,0 +1,118 @@
+/* Thiết lập cơ bản */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5; /* Nền màu trắng xám bao quanh */
+    color: #333;
+}
+
+/* 1. Header/Navigation Bar */
+.navbar {
+    background-color: #2c3e50; /* Màu đen đậm */
+    color: white;
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.navbar .nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 0.95em;
+    transition: color 0.3s;
+}
+
+.navbar .nav-links a:hover {
+    color: #ccc;
+}
+
+/* 2. Intro Section */
+.intro-section {
+    padding: 50px;
+    background-color: white; /* Nền trắng cho phần giới thiệu */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.profile-container {
+    display: flex;
+    align-items: center; /* Căn giữa theo chiều dọc */
+    max-width: 900px; /* Giới hạn chiều rộng */
+    margin: 0 auto;
+}
+
+.profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 25px;
+    object-fit: cover;
+}
+
+.intro-text {
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+/* 3. Projects Section */
+.projects-section {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 50px;
+}
+
+.projects-section h2 {
+    font-size: 1.6em;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 cột bằng nhau */
+    gap: 20px;
+}
+
+.project-item {
+    background-color: #2c3e50; /* Màu nền dự án giống navbar */
+    color: white;
+    padding: 20px 10px;
+    text-align: center;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.project-item:hover {
+    background-color: #34495e;
+}
+
+/* 4. Footer */
+.footer {
+    background-color: #ededed; /* Màu xám nhạt */
+    padding: 20px 0;
+    text-align: center;
+    color: #555;
+    margin-top: 50px; /* Khoảng cách với phần trên */
+}
+
+.footer a {
+    color: #2c3e50;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+

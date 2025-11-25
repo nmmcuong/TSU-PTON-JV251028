@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giao diện Tin tức</title>
+    <style>
+      /* Thiết lập cơ bản */
+      body {
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: white; /* Nền trắng */
+      }
+
+      .news-container {
+        max-width: 600px; /* Giới hạn chiều rộng cho giao diện di động/news feed */
+        margin: 0 auto;
+        padding: 0 15px; /* Padding hai bên */
+      }
+
+      /* 1. Header (Tiêu đề trang) */
+      .page-header {
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #333;
+        padding: 15px 0 10px 0;
+        margin-bottom: 5px;
+        display: flex; /* Sử dụng flexbox để căn chỉnh chữ và đường kẻ */
+        align-items: center;
+      }
+
+      .star-text {
+        margin-right: 10px; /* Khoảng cách giữa chữ STAR và đường kẻ */
+        padding-right: 10px; /* Thêm padding để đường kẻ không quá sát */
+        position: relative; /* Để đặt đường kẻ tương đối */
+      }
+
+      /* Đường kẻ dọc màu cam */
+      .star-text::before {
+        content: ""; /* Bắt buộc cho pseudo-element */
+        position: absolute;
+        top: 50%; /* Căn giữa theo chiều dọc của text */
+        left: -10px; /* Đặt ở bên phải của text */
+        transform: translateY(-50%); /* Dịch lên 50% chiều cao của nó */
+        width: 3px; /* Độ dày của đường kẻ */
+        height: 80%; /* Chiều cao của đường kẻ (tương đối với text) */
+        background-color: #ff8c00; /* Màu cam */
+      }
+
+      /* 2. Bài viết nổi bật (Featured Post) */
+      .featured-post {
+        margin-top: 15px;
+        margin-bottom: 20px;
+      }
+
+      .featured-image-wrapper {
+        display: flex; /* Rất quan trọng: Dùng Flexbox để hai ảnh nằm cạnh nhau */
+        margin-bottom: 15px;
+        overflow: hidden; /* Đảm bảo không bị tràn */
+      }
+
+      .split-image {
+        width: 50%; /* Mỗi hình chiếm 50% chiều rộng của wrapper */
+        height: auto;
+        display: block;
+        object-fit: cover; /* Đảm bảo ảnh được căn chỉnh và cắt nếu cần */
+      }
+
+      .featured-title {
+        font-size: 1.4em;
+        font-weight: bold;
+        line-height: 1.4;
+        color: #222;
+        margin: 0 0 10px 0;
+      }
+
+      .featured-summary {
+        font-size: 0.95em;
+        color: #555;
+        line-height: 1.5;
+      }
+
+      /* Đường phân cách */
+      .divider {
+        border: 0;
+        border-top: 1px solid #eee; /* Đường kẻ phân cách mỏng */
+        margin: 20px 0;
+      }
+
+      /* 3. Bài viết phụ (Secondary Posts) */
+      .secondary-post {
+        margin: 15px 0;
+      }
+
+      .secondary-title {
+        font-size: 1.1em;
+        font-weight: bold;
+        color: #222;
+        margin: 0;
+        line-height: 1.4;
+        cursor: pointer; /* Cho biết đây là liên kết */
+      }
+
+      .secondary-title:hover {
+        color: #007bff; /* Thay đổi màu khi di chuột */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="news-container">
+      <header class="page-header">
+        <span class="star-text">STAR</span>
+      </header>
+
+      <article class="featured-post">
+        <div class="featured-image-wrapper">
+          <img
+            src="../img/cat5.webp"
+            alt="Hình ảnh minh họa 1"
+            class="split-image"
+          />
+          <img
+            src="../img/cat4.webp"
+            alt="Hình ảnh minh họa 2"
+            class="split-image"
+          />
+        </div>
+
+        <h2 class="featured-title">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </h2>
+        <p class="featured-summary">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad eos vero
+          aperiam odio sapiente reprehenderit non est mollitia.
+        </p>
+      </article>
+
+      <hr class="divider" />
+      <article class="secondary-post">
+        <h2 class="secondary-title">
+          Saepe hic dolor, optio natus ad aut minima, labore quam mollitia ipsum
+          laudantium? Quos ullam exercitationem voluptatum aut repellendus
+          ipsam, cumque labore?
+        </h2>
+      </article>
+
+      <hr class="divider" />
+
+      <article class="secondary-post">
+        <h2 class="secondary-title">Eveniet aspernatur saepe. hic.</h2>
+      </article>
+    </div>
+  </body>
+</html>

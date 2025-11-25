@@ -1,0 +1,100 @@
+/* Thiết lập cơ bản */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0; /* Nền xám nhạt */
+    color: #333;
+}
+
+/* 1. Header (Màu xanh lá cây) */
+.header {
+    background-color: #4CAF50; /* Màu xanh lá cây */
+    color: white;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .logo {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.header .top-nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 0.95em;
+    transition: opacity 0.3s;
+}
+
+.header .top-nav a:hover {
+    opacity: 0.8;
+}
+
+/* 2. Hero Section */
+.hero-section {
+    background-color: #f7f7f7; /* Màu nền trắng xám nhẹ */
+    text-align: center;
+    padding: 80px 20px 100px; /* Padding lớn để tạo không gian giữa header và features */
+}
+
+.hero-section h1 {
+    font-size: 2.5em;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.hero-section .tagline {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+}
+
+/* Nút "Get Started" */
+.btn-primary {
+    display: inline-block;
+    background-color: #66BB6A; /* Màu xanh lá cây nhạt hơn */
+    color: white;
+    padding: 10px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #5cb85c;
+}
+
+/* 3. Feature Section */
+.features-section {
+    background-color: #f0f0f0; /* Giữ nền xám nhạt */
+    padding: 20px 40px;
+    display: flex;
+    justify-content: center; /* Căn giữa các box */
+    gap: 20px; /* Khoảng cách giữa các box */
+    padding-bottom: 100px; /* Khoảng cách với footer */
+}
+
+.feature-box {
+    background-color: #e0e0e0; /* Màu xám nhạt cho box */
+    flex: 1; /* Chia đều không gian */
+    max-width: 300px;
+    padding: 20px;
+    text-align: center;
+    color: #555;
+    font-weight: bold;
+}
+
+/* 4. Footer */
+.footer {
+    background-color: #333; /* Màu đen đậm */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 0.9em;
+}
+

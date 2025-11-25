@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thẻ Tin Tức</title>
+    <style>
+      /* Thiết lập cơ bản */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background-color: #f7f7f7; /* Nền xám nhạt bao quanh */
+        padding: 40px 20px;
+        display: flex;
+        justify-content: center;
+      }
+
+      /* Container chính của thẻ tin tức */
+      .news-card {
+        background-color: white;
+        max-width: 700px;
+        width: 100%;
+        border: 1px solid #eee; /* Viền rất nhẹ */
+        border-radius: 4px; /* Bo góc nhẹ */
+        overflow: hidden; /* Đảm bảo mọi thứ nằm trong card */
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Bóng đổ nhẹ */
+      }
+
+      /* Khu vực nội dung (Ảnh và Text) */
+      .content-wrapper {
+        display: flex;
+        padding: 20px;
+      }
+
+      /* 1. Hình ảnh */
+      .image-container {
+        flex-shrink: 0; /* Quan trọng: Ngăn hình ảnh bị co lại */
+        width: 250px; /* Chiều rộng cố định cho hình ảnh */
+        margin-right: 20px;
+      }
+
+      .news-image {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+      }
+
+      /* 2. Nội dung Text */
+      .text-content {
+        flex-grow: 1;
+      }
+
+      .category-label {
+        font-size: 0.85em;
+        color: #0e2ecb;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      .news-summary {
+        font-size: 0.9em;
+        color: #555;
+        line-height: 1.5;
+        /* Giới hạn số dòng của tóm tắt (nếu cần thiết) */
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      /* Footer/Thông tin nguồn */
+      .card-footer {
+        border-top: 1px solid #eee;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.85em;
+        margin-left: 280px;
+        color: #777;
+      }
+
+      .views {
+        display: flex;
+        align-items: center;
+        margin-right: 260px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card-wrapper">
+      <article class="news-card">
+        <div class="content-wrapper">
+          <div class="image-container">
+            <img src="../img/cat4.webp" alt="Ảnh minh họa" class="news-image" />
+          </div>
+
+          <div class="text-content">
+            <p class="category-label">• Tài trợ</p>
+
+            <h2 class="news-title">
+              Bí mật sau chuỗi thành công của "đế chế" kẹo ngọt đã chinh phục
+              tuổi thơ mọi thế hệ người Việt
+            </h2>
+
+            <p class="news-summary">
+              BigBabol, Alpenliebe, Mentos, HappyDent, Golia, Chupa Chups - "tài
+              sản" quý giá của Perfetti Van Melle, một trong những tập đoàn
+              sản...
+            </p>
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <span class="source">kenh14.vn</span>
+          <span class="views"> &#128065; +56k </span>
+        </div>
+      </article>
+    </div>
+  </body>
+</html>

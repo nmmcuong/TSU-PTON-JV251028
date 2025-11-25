@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Grid Layout Không Đồng Đều</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f0f0f0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .grid-container {
+        border: 2px solid black;
+        padding: 10px;
+
+        display: grid;
+
+        grid-template-columns: repeat(4, 1fr);
+
+        gap: 10px;
+
+        max-width: 1200px;
+        width: 90vw;
+      }
+
+      /* 2. Thiết lập kiểu cho các Grid Item */
+      .grid-item {
+        background-color: #3498db;
+        color: white;
+        font-size: 2em;
+        font-weight: bold;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        border-radius: 8px;
+
+        padding-top: 20%;
+        padding-bottom: 20%;
+      }
+
+      .span-two {
+        grid-column: span 2;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="grid-item">1</div>
+      <div class="grid-item">2</div>
+      <div class="grid-item">3</div>
+      <div class="grid-item">4</div>
+      <div class="grid-item span-two">5</div>
+      <div class="grid-item">6</div>
+      <div class="grid-item">7</div>
+    </div>
+  </body>
+</html>

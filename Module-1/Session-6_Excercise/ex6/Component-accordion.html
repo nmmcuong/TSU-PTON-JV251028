@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accordion Component</title>
+    <style>
+      /* Thiết lập cơ bản */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 40px 20px;
+        background-color: #f7f7f7; /* Nền xám nhạt */
+      }
+
+      .accordion-container {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: white;
+        border: 1px solid #dee2e6; /* Viền bao quanh toàn bộ component */
+        border-radius: 6px; /* Bo góc */
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      }
+
+      /* Các mục Accordion (Item) */
+      .accordion-item {
+        border-bottom: 1px solid #dee2e6; /* Đường phân cách giữa các mục */
+      }
+
+      /* Loại bỏ viền dưới cùng của mục cuối cùng */
+      .accordion-item:last-child {
+        border-bottom: none;
+      }
+
+      /* Header (Thanh tiêu đề) */
+      .accordion-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        font-weight: bold;
+        font-size: 1em;
+        cursor: pointer;
+        background-color: white;
+        color: #333;
+        transition: background-color 0.2s;
+      }
+
+      /* Kiểu cho Header của mục đang mở */
+      .accordion-header.active {
+        background-color: #e9f7ff; /* Màu xanh nhạt cho mục đang mở */
+        color: #007bff; /* Màu chữ xanh */
+        border-radius: 6px 6px 0 0; /* Giữ bo góc trên */
+      }
+
+      .accordion-header i {
+        font-size: 0.8em;
+      }
+
+      /* Nội dung của Accordion (Body) */
+      .accordion-body {
+        padding: 0 20px;
+        background-color: white;
+        /* Ẩn nội dung theo mặc định - JavaScript sẽ thay đổi chiều cao */
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+      }
+
+      /* Mục đang mở (chỉ dùng cho mục đầu tiên trong giao diện tĩnh) */
+      .accordion-body.open {
+        max-height: 500px; /* Giá trị lớn để hiển thị nội dung */
+        padding-top: 15px;
+        padding-bottom: 15px;
+        border-top: 1px solid #dee2e6; /* Viền mỏng ngay dưới header */
+      }
+
+      .accordion-body p {
+        margin: 0;
+        line-height: 1.6;
+        font-size: 0.95em;
+        color: #333;
+      }
+
+      .color {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="accordion-container">
+      <div class="accordion-item">
+        <div class="accordion-header active">
+          Accordion Item #1
+          <i class="fas fa-chevron-up"></i>
+        </div>
+        <div class="accordion-body open">
+          <p>
+            <b>This is the first item's accordion body.</b> Lorem ipsum dolor
+            sit, amet consectetur adipisicing elit. A pariatur aspernatur
+            maxime, blanditiis officia tenetur voluptatibus laboriosam corrupti
+            maiores fuga at quia. Consequatur sit sed non! At placeat nihil
+            quo?<span class="color">.accordion-body</span>Lorem ipsum dolor sit
+            amet consectetur adipisicing elit.
+          </p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          Accordion Item #2
+          <i class="fas fa-chevron-down"></i>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          Accordion Item #3
+          <i class="fas fa-chevron-down"></i>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

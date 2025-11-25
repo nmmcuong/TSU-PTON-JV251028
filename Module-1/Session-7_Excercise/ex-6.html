@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MY BLOG - Trang Chủ</title>
+    <style>
+      /* Thiết lập cơ bản */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: white;
+        color: #333;
+        min-height: 100vh;
+      }
+
+      /* 1. Header */
+      .header {
+        background-color: #333; /* Màu đen đậm */
+        color: white;
+        padding: 20px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .header .logo {
+        font-size: 1.2em;
+        font-weight: bold;
+        margin-left: 22%;
+      }
+
+      .header .top-nav a {
+        color: white;
+        text-decoration: none;
+        margin-right: 20px;
+        font-size: 0.95em;
+        opacity: 0.8;
+      }
+
+      .header .top-nav a:hover {
+        opacity: 1;
+      }
+
+      /* 2. Nội dung chính */
+      .content-container {
+        max-width: 900px; /* Giới hạn chiều rộng nội dung */
+        margin: 0 auto;
+        padding: 30px 20px;
+      }
+
+      h2 {
+        font-size: 1.5em;
+        margin-top: 30px;
+        margin-bottom: 20px;
+        margin-left: 20px;
+
+        margin: 30px 20px 20px 20px;
+        /* Giả lập đường kẻ mỏng dưới tiêu đề (tùy chọn) */
+        padding-bottom: 5px;
+        border-bottom: 1px solid #eee;
+      }
+
+      /* Bài viết nổi bật */
+      .featured-section {
+        width: 60%;
+        padding-top: 10px;
+        padding-bottom: 30px;
+        border-bottom: 1px solid #f0f0f0; /* Đường phân cách */
+        background-color: gainsboro;
+        border-radius: 4px;
+      }
+
+      .featured-post h3 {
+        font-size: 1.2em;
+        margin-top: 0;
+        margin-bottom: 10px;
+        margin-left: 20px;
+      }
+
+      .featured-post .summary {
+        color: #666;
+        margin-bottom: 15px;
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+
+      .read-more {
+        color: #007bff; /* Màu xanh dương cho liên kết */
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 0.9em;
+        margin-left: 20px;
+      }
+
+      .read-more:hover {
+        text-decoration: underline;
+      }
+
+      /* Các bài viết khác */
+      .post-list {
+        margin-top: 20px;
+        margin-left: 20px;
+      }
+
+      .secondary-post {
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 1px dotted #f0f0f0; /* Đường chấm mỏng phân cách */
+      }
+
+      .secondary-post:last-child {
+        border-bottom: none;
+      }
+
+      .secondary-post h3 {
+        font-size: 1.1em;
+        margin-top: 0;
+        margin-bottom: 5px;
+      }
+
+      .secondary-post p {
+        font-size: 0.9em;
+        color: #888;
+      }
+
+      /* 3. Footer */
+      .footer {
+        background-color: #333; /* Màu đen đậm */
+        color: white;
+        padding: 15px 0;
+        text-align: center;
+        font-size: 0.8em;
+        margin-top: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="logo">MY BLOG</h1>
+      <nav class="top-nav">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Posts</a>
+        <a href="#">Contact</a>
+      </nav>
+    </header>
+
+    <main class="content-container">
+      <section class="featured-section">
+        <h2>Bài viết nổi bật</h2>
+        <div class="featured-post">
+          <h3>Tiêu đề bài viết chính</h3>
+          <p class="summary">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut
+            nulla eu lorem tincidunt tristique.
+          </p>
+          <a href="#" class="read-more">Đọc thêm</a>
+        </div>
+      </section>
+
+      <section class="secondary-section">
+        <h2>Các bài viết khác</h2>
+        <div class="post-list">
+          <div class="secondary-post">
+            <h3>Bài viết 1</h3>
+            <p>Lorem ipsum dolor sit amet...</p>
+          </div>
+
+          <div class="secondary-post">
+            <h3>Bài viết 2</h3>
+            <p>Ut nulla eu lorem tincidunt...</p>
+          </div>
+
+          <div class="secondary-post">
+            <h3>Bài viết 3</h3>
+            <p>Consectetur adipiscing elit...</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© 2023 My Blog. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

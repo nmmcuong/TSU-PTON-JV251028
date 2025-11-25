@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landing Page Demo</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: white;
+      }
+
+      .navbar {
+        background-color: #333;
+        color: white;
+        padding: 15px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.2em;
+        font-weight: bold;
+      }
+
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        margin-left: 20px;
+        font-size: 0.9em;
+      }
+
+      .hero-banner {
+        background-color: #ccc;
+        color: #666;
+        height: 400px;
+        max-width: 1200px;
+        margin: 0 auto;
+        margin-top: 1px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2em;
+      }
+      .information {
+        margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-left: 10px;
+      }
+      .item {
+        width: calc(50% - 10px);
+        background-color: #ebeaea;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+        border-radius: 4px;
+      }
+
+      .item-large {
+        width: calc(100% - 10px);
+      }
+
+      @media screen and (max-width: 1024px) {
+        .item {
+          width: calc(100% - 10px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">Logo</div>
+      <nav class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero-banner">
+      <p>1200 x 400</p>
+    </section>
+
+    <section class="information">
+      <article class="item">Giới thiệu 1</article>
+      <article class="item">Giới thiệu 2</article>
+      <article class="item item-large">Giới thiệu 3</article>
+    </section>
+  </body>
+</html>

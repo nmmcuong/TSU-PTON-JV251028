@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luyện Tập Flexbox Responsive</title>
+    <style>
+      /* Thiết lập cơ bản */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: white;
+      }
+
+      /* Định kiểu chung cho các khối */
+      .block {
+        background-color: #a7d9e7; /* Màu xanh nhạt */
+        color: #333;
+        padding: 40px 20px;
+        text-align: center;
+        font-size: 1.5em;
+        font-weight: bold;
+        border: 1px solid #73a9b8; /* Viền mỏng */
+        box-sizing: border-box; /* Đảm bảo padding không làm tăng kích thước */
+      }
+
+      .main-container {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .top-row {
+        display: flex;
+      }
+
+      .block-1 {
+        flex: 1;
+      }
+
+      .block-1 {
+        flex: 1;
+      }
+      .block-2 {
+        flex: 1;
+      }
+
+      .block-3 {
+        width: 100%;
+      }
+
+      @media (max-width: 600px) {
+        .top-row {
+          flex-direction: column; /* Xếp chồng (từ ngang sang dọc) */
+        }
+
+        /* Đảm bảo Khối 1 và Khối 2 chiếm toàn bộ chiều rộng */
+        .block-1,
+        .block-2 {
+          flex: none;
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="top-row">
+        <div class="block block-1">Khối 1</div>
+        <div class="block block-2">Khối 2</div>
+      </div>
+
+      <div class="block block-3">Khối 3</div>
+    </div>
+  </body>
+</html>

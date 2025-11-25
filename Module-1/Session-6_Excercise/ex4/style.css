@@ -1,0 +1,126 @@
+/* Thiết lập cơ bản */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7; /* Nền xám nhạt */
+    color: #333;
+}
+
+/* 1. Header/Banner (Màu xanh lá cây) */
+.header {
+    background-color: #4CAF50; /* Màu xanh lá cây */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header .blog-title {
+    margin: 0;
+    font-size: 2em;
+}
+
+.header .top-nav {
+    margin-top: 5px;
+}
+
+.header .top-nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+.header .top-nav a:hover {
+    opacity: 1;
+}
+
+/* 2. Container (Chứa Sidebar và Content) */
+.container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white; /* Nền trắng cho khu vực nội dung chính */
+    min-height: 80vh; /* Đảm bảo đủ chiều cao */
+}
+
+/* 3. Sidebar (Chuyên mục) */
+.sidebar {
+    width: 200px; /* Chiều rộng thanh bên */
+    padding: 20px;
+    background-color: white; 
+    border-right: 1px solid #ddd; /* Đường viền nhẹ bên phải */
+}
+
+.sidebar h2 {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.sidebar .category-list {
+    padding: 0;
+}
+
+.sidebar .category-list li {
+    margin-bottom: 5px;
+}
+
+.sidebar .category-list a {
+    color: #007bff; /* Màu xanh dương cho liên kết */
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+.sidebar .category-list a:hover {
+    text-decoration: underline;
+}
+
+/* 4. Content Area (Bài viết) */
+.content {
+    flex-grow: 1; /* Cho phép chiếm hết không gian còn lại */
+    padding: 20px 40px;
+    background-color: white;
+}
+
+.post {
+    margin-bottom: 40px;
+}
+
+.post h3 {
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.post .post-image {
+    width: 250px; /* Kích thước ảnh minh họa */
+    height: auto;
+    margin-bottom: 10px;
+    border: 1px solid #ccc; /* Viền nhẹ cho ảnh */
+    padding: 5px;
+    display: block;
+}
+
+.post .post-summary {
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #eee; /* Đường kẻ phân cách bài viết */
+    margin: 30px 0;
+}
+
+/* 5. Footer (Viền đen dưới cùng) */
+.footer {
+    height: 10px;
+    background-color: #333; /* Màu đen */
+    width: 100%;
+}
+
+

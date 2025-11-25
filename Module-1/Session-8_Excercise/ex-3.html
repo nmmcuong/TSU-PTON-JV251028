@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luyện Tập Footer Responsive</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: white;
+      }
+
+      .main-footer {
+        background-color: #222;
+        color: white;
+        padding: 30px 20px;
+      }
+
+      .footer-container {
+        max-width: 900px;
+        margin: 0 auto;
+
+        display: flex;
+
+        flex-wrap: wrap;
+        gap: 20px 200px;
+      }
+
+      .footer-item {
+        font-size: 1.1em;
+        padding: 5px 0;
+      }
+
+      .footer-item {
+        width: 50%;
+        box-sizing: border-box;
+      }
+
+      .item-1,
+      .item-3 {
+        width: 50%;
+      }
+
+      .item-2,
+      .item-4 {
+        width: 50%;
+        text-align: right;
+      }
+
+      .footer-item {
+        width: 50%;
+      }
+      .item-2,
+      .item-4 {
+        text-align: right;
+      }
+
+      @media (max-width: 600px) {
+        .footer-container {
+          flex-direction: column;
+        }
+
+        .footer-item {
+          width: 100%;
+          text-align: left;
+          margin-right: 20px;
+          padding: 30px 0;
+          border-bottom: 1px solid #333;
+        }
+
+        .footer-item:last-child {
+          border-bottom: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main style="min-height: 80vh"></main>
+
+    <footer class="main-footer">
+      <div class="footer-container">
+        <div class="footer-col col-1">
+          <p>Thông Tin 1</p>
+          <p>Thông Tin 2</p>
+        </div>
+
+        <div class="footer-col col-2">
+          <p>Thông Tin 3</p>
+          <p>Thông Tin 4</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

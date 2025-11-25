@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Grid Layout 8 Ô</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f0f0f0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .grid-container {
+        border: 2px solid black;
+        padding: 10px;
+        display: grid;
+
+        /* Tạo 4 cột có chiều rộng bằng nhau */
+        grid-template-columns: repeat(4, 1fr);
+
+        /* Tạo 2 hàng (các hàng sẽ tự động điều chỉnh theo nội dung) */
+        grid-template-rows: repeat(2, 1fr);
+
+        /* Khoảng cách giữa các ô */
+        gap: 10px;
+
+        /* Đảm bảo container không bị tràn */
+        max-width: 1200px;
+        width: 90vw;
+      }
+
+      /* 2. Thiết lập kiểu cho các Grid Item */
+      .grid-item {
+        background-color: #3cb371; /* Màu xanh lá cây (Medium Sea Green) */
+        color: white;
+        font-size: 2em;
+        font-weight: bold;
+
+        /* Căn giữa chữ bên trong ô */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        /* Bo góc (tạo hình dạng viên thuốc/bo tròn góc) */
+        border-radius: 8px;
+
+        /* Tỷ lệ khung hình cố định cho chiều cao */
+        padding-top: 20%;
+        padding-bottom: 20%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="grid-item">1</div>
+      <div class="grid-item">2</div>
+      <div class="grid-item">3</div>
+      <div class="grid-item">4</div>
+      <div class="grid-item">5</div>
+      <div class="grid-item">6</div>
+      <div class="grid-item">7</div>
+      <div class="grid-item">8</div>
+    </div>
+  </body>
+</html>

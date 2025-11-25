@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Đăng Ký</title>
+    <style>
+      /* Thiết lập cơ bản */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background-color: #f7f7f7; /* Màu nền xám nhạt */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh; /* Đảm bảo form căn giữa toàn màn hình */
+      }
+
+      /* Container căn giữa */
+      .center-container {
+        padding: 20px;
+      }
+
+      /* Card chứa Form */
+      .signup-card {
+        background-color: white;
+        padding: 40px;
+        border-radius: 8px; /* Bo góc nhẹ */
+        width: 100%;
+        max-width: 400px; /* Giới hạn chiều rộng của form */
+      }
+
+      /* Tiêu đề "Đăng Ký" */
+      .signup-card h2 {
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 30px;
+        font-size: 1.8em;
+        color: #333;
+        font-weight: bold; /* Đậm hơn */
+      }
+
+      /* Nhóm input (label + input) */
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block; /* Đảm bảo label chiếm hết chiều rộng và input xuống dòng */
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: #333;
+      }
+
+      /* Trường Input */
+      .form-group input[type="text"],
+      .form-group input[type="email"],
+      .form-group input[type="password"] {
+        width: 100%;
+        padding: 12px;
+        border-radius: 4px;
+        box-sizing: border-box; /* Padding không làm tăng kích thước input */
+        font-size: 1em;
+        transition: border-color 0.3s;
+      }
+
+      .form-group input:focus {
+        border-color: #007bff; /* Viền xanh khi focus */
+        outline: none; /* Bỏ viền outline mặc định của trình duyệt */
+      }
+
+      /* Nút Đăng Ký */
+      .submit-button {
+        width: 100%;
+        background-color: #007bff; /* Màu xanh dương */
+        color: white;
+        padding: 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1.1em;
+        font-weight: bold;
+        transition: background-color 0.3s;
+        margin-top: 10px; /* Khoảng cách với input cuối cùng */
+      }
+
+      .submit-button:hover {
+        background-color: #0056b3; /* Màu xanh đậm hơn khi di chuột */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center-container">
+      <div class="signup-card">
+        <h2>Đăng Ký</h2>
+        <form action="#" method="post">
+          <div class="form-group">
+            <label for="name">Tên:</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+
+          <div class="form-group">
+            <label for="password">Mật khẩu:</label>
+            <input type="password" id="password" name="password" required />
+          </div>
+
+          <button type="submit" class="submit-button">Đăng Ký</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

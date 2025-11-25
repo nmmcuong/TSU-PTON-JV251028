@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Căn giữa bằng Flexbox</title>
+    <style>
+      /* Thiết lập cơ bản cho body và container */
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      /* 1. Thiết lập Flex Container */
+      .container {
+        /* Đảm bảo container chiếm toàn bộ viewport */
+        height: 100vh;
+        width: 100vw;
+        background-color: #f0f0f0; /* Màu nền xám nhạt như hình */
+        border: 1px solid black; /* Viền đen bao quanh */
+
+        /* Kích hoạt Flexbox */
+        display: flex;
+
+        /* 2. Căn giữa theo chiều ngang (trục chính) */
+        justify-content: center;
+
+        /* 3. Căn giữa theo chiều dọc (trục phụ) */
+        align-items: center;
+      }
+
+      /* Thiết lập kiểu cho phần tử con cần căn giữa */
+      .centered-box {
+        width: 150px; /* Chiều rộng tùy ý */
+        height: 150px; /* Chiều cao tùy ý (hoặc để nó là hình vuông) */
+        background-color: #3498db; /* Màu xanh dương như hình */
+        color: white;
+        font-size: 1em;
+        font-weight: bold;
+
+        /* Căn giữa nội dung văn bản bên trong box (tùy chọn) */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="centered-box">Centered</div>
+    </div>
+  </body>
+</html>
