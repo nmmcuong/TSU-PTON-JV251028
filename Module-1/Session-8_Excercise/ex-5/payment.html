@@ -15,9 +15,26 @@
       <div class="logo-area">
         <i><img src="./resource/logo.png" alt="" />
       </div>
-      <div class="user-info">
-        USD | <i class="fa-solid fa-user-circle"></i> Delowar
-      </div>
+      <div class="user-header-controls">
+    
+        <div class="currency-indicator">
+            <span class="currency-text">USD</span>
+            <span class="flag-icon"><img width="30" src="./resource/usaIcon.webp" alt=""></span> 
+        </div>
+
+        <div class="notification-icon">
+            <span class="bell-icon"><img width="25" src="./resource/bellIcon.png" alt=""></span> 
+            <span class="notification-badge">1</span>
+        </div>
+        
+        <div class="separator"></div>
+
+        <div class="user-profile">
+            <img width="60" src="./resource/cat5.webp" alt="User Avatar" class="avatar">
+            <span class="username">Delowar</span>
+            <span class="dropdown-arrow">▼</span>
+        </div>
+</div>
     </header>
 
     <main class="main-content-grid">
@@ -96,8 +113,6 @@
               <div class="input-group half-width">
                 <label for="expiry">Expiry Date</label>
                 <input type="text" id="expiry" placeholder="MM/YY" />
-                <input type="checkbox" id="save-card" checked />
-                <label for="save-card">Save Card</label>
               </div>
               <div class="input-group half-width">
                 <label for="cvc">CVC/CVV</label>
@@ -105,10 +120,23 @@
               </div>
             </div>
             
+            <div class="action-group">
+                <div class="checkbox-container">
+   
+                        <input type="checkbox" id="save-card" checked> 
+                        <label for="save-card" class="custom-checkbox">
+                            <p class="checkmark"></p>
+                        
+                        </label>
+                        <span>Save Card</span>
+                </div>
 
-            <button type="submit" class="btn-confirm">
-              Confirm and reserve
-            </button>
+                <button class="confirm-button">
+                    Confirm and reserve
+                </button>
+            </div>
+
+   
           </form>
         </div>
       </section>
@@ -178,8 +206,18 @@
           <img src="./resource/logo.png" alt="">
         </div>
         <p>
-          This is the team that specializes in interior design... [truncated]
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Id assumenda ipsam ea, dolorum dolorem expedita 
         </p>
+
+        <input type="checkbox" id="dark-mode-toggle" class="toggle-checkbox" hidden>
+
+        <div class="header">
+            <label for="dark-mode-toggle" class="toggle-button">
+                <span class="sun-icon"><img width="20" src="./resource/sun.png" alt=""></span>
+                <span class="moon-icon"><img width="20" src="./resource/moon.png" alt=""></span>
+                <span class="slider"></span> 
+            </label>
+        </div>
       </div>
 
       <div class="footer-links">
