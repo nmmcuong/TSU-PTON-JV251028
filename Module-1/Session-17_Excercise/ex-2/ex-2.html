@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Toggle Dark/Light Mode</title>
+    <style>
+      /* CSS Mặc định (Light Mode) */
+      body {
+        background-color: white;
+        color: black;
+      }
+
+      /* CSS Chế độ Tối (Dark Mode) - Áp dụng khi body có class 'dark-mode' */
+      .dark-mode {
+        background-color: black;
+        color: white;
+      }
+
+      .dark-mode h1,
+      .dark-mode p {
+        /* Đảm bảo chữ trong các thẻ khác cũng là màu trắng khi ở chế độ tối */
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Toggle Dark/Light Mode</h1>
+    <p>Click the button to toggle between dark and light mode for this page</p>
+
+    <button onclick="toggleDarkMode()">Toggle dark mode</button>
+
+    <script>
+      // Lấy tham chiếu đến thẻ body (phần tử cần thay đổi màu)
+      const bodyElement = document.body;
+
+      function toggleDarkMode() {
+        bodyElement.classList.toggle("dark-mode");
+      }
+    </script>
+  </body>
+</html>

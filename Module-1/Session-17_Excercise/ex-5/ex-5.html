@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login Check</title>
+    <style>
+      /* CSS tối giản cho form */
+      .login-form {
+        max-width: 300px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+      }
+      input,
+      button {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-form">
+      <h2>Đăng nhập</h2>
+      <input type="text" id="username" placeholder="Username (Email)" />
+      <input type="password" id="password" placeholder="Password" />
+      <button onclick="handleLogin()">Đăng nhập</button>
+    </div>
+
+    <script>
+      // Tên đăng nhập và mật khẩu cố định
+      const CORRECT_USERNAME = "huanrose@gmail.com";
+      const CORRECT_PASSWORD = "123456";
+
+      function handleLogin() {
+        // 1. Lấy giá trị nhập từ DOM
+        const inputUsername = document.getElementById("username").value;
+        const inputPassword = document.getElementById("password").value;
+
+        // 2. Kiểm tra điều kiện đăng nhập
+        if (
+          inputUsername === CORRECT_USERNAME &&
+          inputPassword === CORRECT_PASSWORD
+        ) {
+          // Thành công: Thông báo bằng alert()
+          alert("Thành công: Đăng nhập thành công!");
+        } else {
+          // Thất bại: Thông báo bằng alert()
+          alert("Thất bại: Tên đăng nhập hoặc mật khẩu không đúng!");
+        }
+      }
+    </script>
+  </body>
+</html>

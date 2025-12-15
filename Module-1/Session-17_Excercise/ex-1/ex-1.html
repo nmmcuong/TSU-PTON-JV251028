@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thực hành DOM và Event</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      #targetText {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="targetText">This is a text</p>
+
+    <button onclick="hideText()">Hide text</button>
+
+    <button onclick="showText()">Show text</button>
+
+    <script>
+      function hideText() {
+        // 1. Tìm phần tử DOM bằng ID
+        const textElement = document.getElementById("targetText");
+
+        // 2. Thiết lập thuộc tính CSS display thành 'none' để ẩn nó
+        textElement.style.display = "none";
+        console.log("Đã ẩn văn bản.");
+      }
+
+      function showText() {
+        // 1. Tìm phần tử DOM bằng ID
+        const textElement = document.getElementById("targetText");
+
+        // 2. Thiết lập thuộc tính CSS display thành 'block' để hiển thị nó
+        // Bạn có thể dùng 'block' hoặc 'revert' để trả về giá trị mặc định.
+        textElement.style.display = "block";
+        console.log("Đã hiển thị văn bản.");
+      }
+    </script>
+  </body>
+</html>

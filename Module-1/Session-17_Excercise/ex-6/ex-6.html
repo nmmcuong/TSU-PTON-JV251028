@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Máy Tính Đơn Giản</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body {
+        background: #fff;
+        font-family: Arial, sans-serif;
+        padding: 40px;
+      }
+      .container {
+        max-width: 600px;
+        margin: 40px auto;
+        padding: 30px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 12px #ddd;
+      }
+      .calculator {
+        width: 100%;
+        max-width: 420px;
+        margin: 0 auto;
+        padding: 30px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 12px #eee;
+      }
+      .display {
+        width: 100%;
+        height: 48px;
+        margin-bottom: 16px;
+        border: 2px solid #eee;
+        border-radius: 5px;
+        background: #fafbfc;
+        font-size: 2rem;
+        text-align: right;
+        padding: 10px 14px;
+        box-sizing: border-box;
+        overflow-x: auto;
+      }
+      .buttons {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+      }
+      .btn {
+        font-size: 1.3rem;
+        padding: 20px 0;
+        border: none;
+        border-radius: 5px;
+        background: #f5f5f5;
+        color: #333;
+        cursor: pointer;
+        transition: background 0.2s;
+        user-select: none;
+      }
+      .btn:active {
+        background: #e0e0e0;
+      }
+      .btn.operator {
+        background: #dedede;
+        font-weight: 600;
+      }
+      .btn.equal {
+        grid-row: span 4;
+        background: #4d90fe;
+        color: #fff;
+        font-size: 2rem;
+      }
+      .btn.clear {
+        background: #fbecec;
+        color: #ce4646;
+        font-weight: 600;
+      }
+      @media (max-width: 500px) {
+        .calculator {
+          padding: 10px;
+        }
+        .display {
+          font-size: 1.2rem;
+          padding: 6px 8px;
+        }
+        .btn {
+          font-size: 1rem;
+          padding: 14px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="calculator">
+        <div id="display" class="display">0</div>
+        <div class="buttons">
+          <button class="btn operator" data-action="+">+</button>
+          <button class="btn operator" data-action="-">-</button>
+          <button class="btn operator" data-action="*">&times;</button>
+          <button class="btn operator" data-action="/">&#247;</button>
+
+          <button class="btn" data-action="7">7</button>
+          <button class="btn" data-action="8">8</button>
+          <button class="btn" data-action="9">9</button>
+          <button
+            class="btn equal"
+            data-action="="
+            style="grid-row: 2 / span 4"
+          >
+            =
+          </button>
+
+          <button class="btn" data-action="4">4</button>
+          <button class="btn" data-action="5">5</button>
+          <button class="btn" data-action="6">6</button>
+
+          <button class="btn" data-action="1">1</button>
+          <button class="btn" data-action="2">2</button>
+          <button class="btn" data-action="3">3</button>
+
+          <button class="btn" data-action="0">0</button>
+          <button class="btn" data-action=".">.</button>
+          <button class="btn clear" data-action="C">C</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      const display = document.getElementById("display");
+      let currentInput = "0";
+      let operator = "";
+      let operand = null;
+      let isResult = false;
+
+      function updateDisplay() {
+        display.textContent = currentInput;
+      }
+
+      function handleNumber(num) {
+        if (isResult) {
+          currentInput = num;
+          isResult = false;
+        } else {
+          if (currentInput === "0" && num !== ".") {
+            currentInput = num;
+          } else if (num === "." && currentInput.includes(".")) {
+            // Do nothing
+          } else {
+            currentInput += num;
+          }
+        }
+        updateDisplay();
+      }
+
+      function handleOperator(op) {
+        if (operator && !isResult) {
+          handleEqual();
+        }
+        operand = parseFloat(currentInput);
+        operator = op;
+        isResult = false;
+        currentInput = "0";
+      }
+
+      function handleEqual() {
+        if (!operator) return;
+        let result;
+        let secondOperand = parseFloat(currentInput);
+
+        switch (operator) {
+          case "+":
+            result = operand + secondOperand;
+            break;
+          case "-":
+            result = operand - secondOperand;
+            break;
+          case "*":
+            result = operand * secondOperand;
+            break;
+          case "/":
+            if (secondOperand === 0) {
+              display.textContent = "Không thể chia cho 0!";
+              operator = "";
+              operand = null;
+              currentInput = "0";
+              isResult = true;
+              return;
+            }
+            result = operand / secondOperand;
+            break;
+          default:
+            return;
+        }
+        currentInput = String(
+          Number.isFinite(result) ? Number(result.toPrecision(12)) : "Lỗi"
+        );
+        updateDisplay();
+        operator = "";
+        operand = null;
+        isResult = true;
+      }
+
+      function handleClear() {
+        currentInput = "0";
+        operator = "";
+        operand = null;
+        isResult = false;
+        updateDisplay();
+      }
+
+      document.querySelectorAll(".btn").forEach((btn) => {
+        btn.addEventListener("click", function () {
+          const action = this.getAttribute("data-action");
+          if (!isNaN(action) || action === ".") {
+            handleNumber(action);
+          } else if (["+", "-", "*", "/"].includes(action)) {
+            handleOperator(action);
+          } else if (action === "=") {
+            handleEqual();
+          } else if (action === "C") {
+            handleClear();
+          }
+        });
+      });
+
+      // Keyboard support (optional)
+      document.addEventListener("keydown", (e) => {
+        if (/\d/.test(e.key)) {
+          handleNumber(e.key);
+        } else if (["+", "-", "*", "/"].includes(e.key)) {
+          handleOperator(e.key);
+        } else if (e.key === "." || e.key === ",") {
+          handleNumber(".");
+        } else if (e.key === "Enter" || e.key === "=") {
+          handleEqual();
+        } else if (e.key.toLowerCase() === "c") {
+          handleClear();
+        }
+      });
+
+      updateDisplay();
+    </script>
+  </body>
+</html>
