@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+    background-color: #f0f0f0;
+}
+
+.keyboard-container {
+    width: 100%;
+    max-width: 700px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 1. Input Area */
+.input-container {
+    margin-bottom: 20px;
+}
+
+#text-input {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* 2. Keyboard Layout */
+.keyboard-layout {
+    display: grid;
+    /* Chia lưới 10 cột, mỗi cột bằng nhau */
+    grid-template-columns: repeat(10, 1fr); 
+    gap: 8px;
+}
+
+.key {
+    padding: 15px 0;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.1s;
+    text-transform: uppercase;
+}
+
+/* 2.1. Nút màu xanh */
+.key.blue {
+    background-color: #4285f4; /* Màu xanh lam */
+    color: white;
+}
+
+/* 2.2. Nút màu đỏ (Xóa) */
+.key.red {
+    background-color: #f44336; /* Màu đỏ */
+    color: white;
+    /* Làm cho nút 'Xóa' chiếm 4 cột cuối (chỉ cần 1 nút, 3 vị trí còn lại tự động trống) */
+    grid-column: span 4; 
+}
+
+/* Hiệu ứng khi nhấn */
+.key:active {
+    opacity: 0.8;
+}

@@ -1,0 +1,91 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* 1. Input Form (Thêm/Sửa) */
+.input-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.input-form input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    flex-grow: 1; /* Cho các input co giãn */
+}
+
+#add-edit-btn {
+    padding: 10px 20px;
+    background-color: #007bff; /* Màu xanh dương cho nút Thêm */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+/* 2. Search Area */
+.search-area #search-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* 3. Table Style */
+#student-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+#student-table th, #student-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+}
+
+#student-table th {
+    background-color: #f8f8f8;
+    color: #555;
+    font-weight: bold;
+}
+
+/* Nút Hành động */
+.edit-btn {
+    background-color: #ffc107; /* Màu vàng (Sửa) */
+}
+.delete-btn {
+    background-color: #dc3545; /* Màu đỏ (Xóa) */
+}
+.edit-btn, .delete-btn {
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-left: 5px;
+}

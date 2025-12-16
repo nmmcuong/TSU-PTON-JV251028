@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.todo-container {
+    width: 100%;
+    max-width: 500px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* 1. Vùng Header (Màu đỏ) */
+.header {
+    background-color: #f44336; /* Màu đỏ nổi bật */
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.header h1 {
+    margin-top: 0;
+    font-size: 1.5em;
+}
+
+.input-area {
+    display: flex;
+    margin-top: 15px;
+}
+
+#todo-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    font-size: 16px;
+}
+
+#add-btn {
+    padding: 10px 20px;
+    background-color: #c0c0c0; /* Màu xám của nút Thêm */
+    color: #333;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 0 4px 4px 0;
+    transition: background-color 0.3s;
+}
+
+/* 2. Danh sách công việc */
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    margin-bottom: 2px;
+    background-color: #e0e0e0; /* Màu xám nhạt cho chưa hoàn thành */
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1.1em;
+}
+
+/* 2.1. Công việc đã hoàn thành (Màu xám đậm) */
+/* 2.1. Công việc đã hoàn thành (Màu xám đậm và GẠCH NGANG) */
+.completed {
+    background-color: #888888; /* Màu xám đậm */
+    color: white;
+    font-weight: bold;
+    /* THÊM HIỆU ỨNG GẠCH NGANG */
+    text-decoration: line-through; 
+}
+
+.task-text {
+    flex-grow: 1;
+}
+
+.check-icon {
+    margin-left: 10px;
+    font-size: 1.2em;
+}
+
+/* Thêm hiệu ứng xóa/sửa (chưa có trong hình, nhưng cần cho CRUD) */
+.todo-item:hover {
+    background-color: #d1d1d1;
+}
