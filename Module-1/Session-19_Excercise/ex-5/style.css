@@ -1,0 +1,137 @@
+:root {
+    --primary-color: #5c3d86; /* Màu tím chủ đạo */
+    --accent-color: #9c27b0;
+    --white: #fff;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: #24d11e;
+    /* Hình nền họa tiết mỏ neo (ví dụ) */
+    background-image: url('https://www.transparenttextures.com/patterns/anchors.png');
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header / Button Add */
+h1 {
+    margin: 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--white);
+    padding: 15px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+h1:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Container chứa Bookmarks */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.bookmark-item {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: var(--white);
+    padding: 15px 25px;
+    margin: 10px;
+    border-radius: 5px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.bookmark-item i.delete-icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    color: #888;
+}
+
+.bookmark-item i.delete-icon:hover {
+    color: red;
+}
+
+/* Modal Styling */
+.modal-container {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none; /* Ẩn mặc định */
+    justify-content: center;
+    align-items: center;
+}
+
+.show-modal {
+    display: flex;
+}
+
+.modal {
+    background-color: var(--white);
+    width: 400px;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.modal-header {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 15px;
+    text-align: left;
+}
+
+.close-icon {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: white;
+    cursor: pointer;
+}
+
+.modal-content {
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.form-input {
+    width: 100%;
+    padding: 8px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    filter: brightness(1.2);
+}
