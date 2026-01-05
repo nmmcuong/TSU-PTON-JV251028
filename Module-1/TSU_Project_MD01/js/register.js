@@ -36,9 +36,17 @@ registerForm.addEventListener('submit', function(e) {
 
     // 6. Lưu tài khoản mới
     const newUser = {
-        name: lastName + " " + firstName,
-        email: email,
-        password: password
+      id: listUsers.length > 0 ? listUsers[listUsers.length - 1].id + 1 : 1, // Tự động tăng ID
+      first_name: firstName,
+      last_name: lastName,
+      gender: 0, // Mặc định 0 (Nam) hoặc bổ sung input radio vào HTML
+      date_of_birth: "", // Có thể bổ sung input type="date"
+      address: "", // Có thể bổ sung input text
+      avatar: "https://example.com/avatar.jpg", // Link ảnh mặc định
+      email: email,
+      password: password,
+      phone_number: "", // Có thể bổ sung input tel
+      created_at: new Date().toISOString(), // Định dạng: 2021-01-01T00:00:00Z
     };
 
     

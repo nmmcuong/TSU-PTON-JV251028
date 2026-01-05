@@ -9,7 +9,7 @@
   </head>
   <body>
     <div class="login-container">
-      <form class="form">
+      <form class="form" id="form">
         <header class="form-header">
           <h3 class="title">Đăng nhập</h3>
           <p class="description">
@@ -19,12 +19,14 @@
         <main class="form-body">
           <div class="form-group">
             <label class="form-label" for="">Email</label>
-            <input class="form-input" />
+            <input id="email" name="email" class="form-input" />
           </div>
 
           <div class="form-group">
             <label class="form-label" for="">Mật khẩu</label>
-            <input class="form-input" />
+            <input type="password"
+                name="password"
+            id="password" class="form-input" />
           </div>
         </main>
 
@@ -39,7 +41,7 @@
         </div>
 
         <footer class="form-footer">
-          <button class="form-button">Đăng nhập</button>
+          <button type="submit" class="form-button">Đăng nhập</button>
           <p class="form-redirect">
             <span
               >Bạn chưa có tài khoản?
@@ -49,5 +51,6 @@
         </footer>
       </form>
     </div>
+    <script src="../js/login.js" defer></script>
   </body>
 </html>

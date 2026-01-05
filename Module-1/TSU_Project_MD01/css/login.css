@@ -107,3 +107,48 @@
   font-size: 14px;
   text-decoration: none;
 }
+
+/* Responsive cho Mobile (Dưới 768px) */
+@media screen and (max-width: 768px) {
+  .form {
+    /* Chuyển từ 535px sang chiều rộng linh hoạt */
+    width: 90%; 
+    max-width: 400px;
+  }
+
+  .form-header {
+    margin-bottom: 30px; /* Giảm khoảng cách */
+    text-align: center;   /* Căn giữa tiêu đề trên mobile */
+  }
+
+  .title {
+    font-size: 32px; /* Giảm kích thước chữ tiêu đề */
+    margin-bottom: 10px;
+  }
+
+  .description {
+    font-size: 15px; /* Giảm kích thước mô tả */
+  }
+
+  .form-input {
+    height: 50px; /* Thu gọn input một chút */
+  }
+
+  .form-button {
+    height: 50px;
+  }
+
+  .form-function {
+    flex-direction: row; /* Giữ checkbox và quên mk nằm cùng hàng */
+    font-size: 12px;
+  }
+}
+
+/* Responsive cho điện thoại rất nhỏ (Dưới 480px) */
+@media screen and (max-width: 480px) {
+  .form-function {
+    flex-direction: column; /* Chuyển thành hàng dọc nếu màn hình quá hẹp */
+    align-items: flex-start;
+    gap: 15px;
+  }
+}
