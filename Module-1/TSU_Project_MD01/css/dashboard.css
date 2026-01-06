@@ -9,9 +9,8 @@ body {
     background-color: #f8f9fa;
 }
 
-/* CONTAINER TỔNG: Chia Sidebar và Main */
 .app-container {
-    display: flex; /* Flexbox chính */
+    display: flex; 
     min-height: 100vh;
 }
 
@@ -59,7 +58,7 @@ body {
 
 /* 2. MAIN CONTENT */
 .main-content {
-    flex: 1; /* Chiếm toàn bộ không gian còn lại */
+    flex: 1; 
     display: flex;
     flex-direction: column;
 }
@@ -68,7 +67,7 @@ body {
     height: 60px;
     background: #fff;
     display: flex;
-    justify-content: flex-end; /* Đẩy icon về bên phải */
+    justify-content: flex-end; 
     align-items: center;
     padding: 0 30px;
     border-bottom: 1px solid #eee;
@@ -99,14 +98,11 @@ body {
     margin-bottom: 30px;
 }
 
-/* Container chứa avatar */
 .profile-group {
     position: relative;
     cursor: pointer;
 }
 
-/* Menu Dropdown mặc định ẩn */
-/* Container chứa avatar */
 .profile-group {
     position: relative;
     cursor: pointer;
@@ -114,48 +110,88 @@ body {
 
 
 .logout-dropdown {
-    display: none; /* Mặc định ẩn, dùng JS để toggle class 'active' */
+    display: none; 
     position: absolute;
     
-    /* Thông số từ hình ảnh Layout */
     width: 240px;
     height: 44px;
-    top: 56px; /* Khoảng cách từ đỉnh header xuống */
-    left: 1000px;  /* Canh lề phải bằng với Avatar */
+    top: 56px; 
+    left: 85%;  
     
     background-color: #ffffff;
-    border-radius: 8px; /* Radius: 8px */
-    border: 1px solid #e2e8f0; /* Border: 1px */
+    border-radius: 8px; 
+    border: 1px solid #e2e8f0; 
     
-    /* Đổ bóng nhẹ để menu nổi bật */
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     
-    /* Căn giữa nội dung bên trong theo chiều dọc */
     display: flex; 
     align-items: center;
 }
 
-/* Hiển thị menu khi active */
 .logout-dropdown.active {
     display: flex !important;
 }
 
-/* Link Log out bên trong */
 .logout-link {
     width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
-    padding: 0 16px; /* Khoảng cách chữ với lề */
+    padding: 0 16px; 
     gap: 12px;
     text-decoration: none;
     color: #475569;
     font-size: 14px;
     transition: background 0.2s;
-    border-radius: 8px; /* Khớp với khung ngoài */
+    border-radius: 8px; 
 }
-
 .logout-link:hover {
     background-color: #f8fafc;
+}
+
+/* Style cho Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.modal-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn-secondary {
+    background: #ccc;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-danger {
+    background: #ff4d4f;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
 }

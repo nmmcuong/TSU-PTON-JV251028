@@ -1,15 +1,25 @@
-const profileGroup = document.getElementById("profileGroup");
-const dropdownLogout = document.getElementById("dropdownLogout");
+document.addEventListener('DOMContentLoaded', function() {
+    const logoutLink = document.querySelector('#logoutDropdown .logout-link');
+    
+    const logoutModal = document.getElementById('logoutModal');
+    const btnCancel = document.getElementById('btnCancelLogout');
+    const btnConfirm = document.getElementById('btnConfirmLogout');
 
-// 1. Click vào avatar để hiện/ẩn menu
-profileGroup.addEventListener("click", function (e) {
-  e.stopPropagation(); // Ngăn sự kiện nổi bọt
-  dropdownLogout.classList.toggle("show");
-});
+    // Kiểm tra nếu phần tử tồn tại thì mới gán sự kiện
+    if (logoutLink) {
+        logoutLink.addEventListener('click', function(e) {
+            e.preventDefault(); 
+            logoutModal.style.display = 'flex'; 
+        });
+    }
 
-// 2. Click ra ngoài để đóng menu
-window.addEventListener("click", function () {
-  if (dropdownLogout.classList.contains("show")) {
-    dropdownLogout.classList.remove("show");
-  }
+    // Nút Hủy bỏ: Đóng modal
+    btnCancel.addEventListener('click', function() {
+        logoutModal.style.display = 'none';
+    });
+
+    // Nút Xác nhận: Chuyển hướng
+    btnConfirm.addEventListener('click', function() {
+        window.location.href = '../pages/login.html';
+    });
 });

@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem("currentUser", JSON.stringify(userFound));
 
       // Chuyển hướng sang trang quản lý/trang chủ
-      window.location.href = "../pages/category-manager.html";
+      window.location.href = "../pages/dashboard.html";
     } else {
       alert("Email hoặc mật khẩu không đúng. Vui lòng thử lại!");
     }

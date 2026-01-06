@@ -347,6 +347,10 @@ th {
     display: none; /* Mặc định ẩn */
 }
 
+.input-error {
+    border: 1px solid #ef4444 !important;
+    background-color: #fffafb; /* Màu nền hồng nhạt nhẹ nếu muốn giống hình */
+}
 input.error-border {
     border-color: #ef4444 !important;
 }

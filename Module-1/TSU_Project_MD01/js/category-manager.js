@@ -6,21 +6,85 @@ const rowsPerPage = 8; // Số lượng dòng trên mỗi trang
 if (!localStorage.getItem("categories")) {
   const defaultData = [
     {
-      id: 1,
-      category_code: "DM001",
-      category_name: "Quần áo",
-      image: "https://example.com/clothes.jpg",
-      status: "ACTIVE",
-      created_at: new Date().toISOString(),
-    },
-    {
-      id: 2,
-      category_code: "DM002",
-      category_name: "Kính mắt",
-      image: "https://example.com/glasses.jpg",
-      status: "INACTIVE",
-      created_at: new Date().toISOString(),
-    },
+    id: 1,
+    category_code: "DM001",
+    category_name: "Điện thoại",
+    image: "https://picsum.photos/200/200?random=101",
+    status: "ACTIVE",
+    created_at: new Date().toISOString(),
+  },
+  {
+    id: 2,
+    category_code: "DM002",
+    category_name: "Laptop",
+    image: "https://picsum.photos/200/200?random=102",
+    status: "ACTIVE",
+    created_at: new Date().toISOString(),
+  },
+  {
+    id: 3,
+    category_code: "DM003",
+    category_name: "Máy tính bảng",
+    image: "https://picsum.photos/200/200?random=103",
+    status: "ACTIVE",
+    created_at: new Date().toISOString(),
+  },
+  {
+    id: 4,
+    category_code: "DM004",
+    category_name: "Âm thanh",
+    image: "https://picsum.photos/200/200?random=104",
+    status: "ACTIVE",
+    created_at: new Date().toISOString(),
+  },
+  {
+    id: 5,
+    category_code: "DM005",
+    category_name: "Đồng hồ thông minh",
+    image: "https://picsum.photos/200/200?random=105",
+    status: "ACTIVE",
+    created_at: new Date().toISOString(),
+  },
+  {
+    id: 6,
+    category_code: "DM006",
+    category_name: "Phụ kiện máy tính",
+    image: "https://picsum.photos/200/200?random=106",
+    status: "ACTIVE",
+    created_at: new Date().toISOString(),
+  },
+  {
+    id: 7,
+    category_code: "DM007",
+    category_name: "Máy chơi game",
+    image: "https://picsum.photos/200/200?random=107",
+    status: "ACTIVE",
+    created_at: new Date().toISOString(),
+  },
+  {
+    id: 8,
+    category_code: "DM008",
+    category_name: "Máy ảnh",
+    image: "https://picsum.photos/200/200?random=108",
+    status: "ACTIVE",
+    created_at: new Date().toISOString(),
+  },
+  {
+    id: 9,
+    category_code: "DM009",
+    category_name: "Flycam",
+    image: "https://picsum.photos/200/200?random=109",
+    status: "ACTIVE",
+    created_at: new Date().toISOString(),
+  },
+  {
+    id: 10,
+    category_code: "DM010",
+    category_name: "Loa Bluetooth",
+    image: "https://picsum.photos/200/200?random=110",
+    status: "ACTIVE",
+    created_at: new Date().toISOString(),
+  },
   ];
   localStorage.setItem("categories", JSON.stringify(defaultData));
 }
@@ -41,10 +105,53 @@ const btnCancelDelete = document.getElementById("btnCancelDelete");
 const btnConfirmDelete = document.getElementById("btnConfirmDelete");
 const deleteTargetName = document.getElementById("deleteTargetName");
 
+document.addEventListener('DOMContentLoaded', function() {
+    const btnSortCode = document.getElementById('btnSortCode');
+    const btnSortName = document.getElementById('btnSortName');
 
-searchInput.addEventListener("input", () => {
-  currentPage = 1; // Luôn reset về trang 1 khi tìm kiếm
-  renderTable();
+    /**
+     * Hàm sắp xếp tổng quát
+     * @param {string} field - Tên thuộc tính trong object (category_code hoặc category_name)
+     */
+    function executeSortASC(field) {
+        // 1. Lấy dữ liệu mới nhất từ Local Storage
+        let categories = JSON.parse(localStorage.getItem('categories')) || [];
+
+        // 2. Thực hiện sắp xếp Tăng dần (ASC)
+        categories.sort((a, b) => {
+            // Chuyển về chuỗi và loại bỏ khoảng trắng thừa
+            const valueA = String(a[field] || "").trim();
+            const valueB = String(b[field] || "").trim();
+
+            // Sử dụng localeCompare để hỗ trợ tiếng Việt chuẩn (A, Ă, Â, B...)
+            return valueA.localeCompare(valueB, 'vi', { sensitivity: 'base' });
+        });
+
+        // 3. Cập nhật lại Local Storage (để lưu trạng thái đã sắp xếp)
+        localStorage.setItem('categories', JSON.stringify(categories));
+
+        // 4. Render lại giao diện
+        if (typeof renderTable === 'function') {
+            currentPage = 1; // Đưa về trang đầu nếu có phân trang
+            renderTable(categories);
+        } else {
+            console.log(`Đã sắp xếp tăng dần theo ${field}:`, categories);
+        }
+    }
+
+    // Gán sự kiện click cho icon Mã danh mục
+    if (btnSortCode) {
+        btnSortCode.addEventListener('click', function() {
+            executeSortASC('category_code');
+        });
+    }
+
+    // Gán sự kiện click cho icon Tên danh mục
+    if (btnSortName) {
+        btnSortName.addEventListener('click', function() {
+            executeSortASC('category_name');
+        });
+    }
 });
 
 filterStatus.addEventListener("change", () => {
@@ -199,7 +306,7 @@ function renderPagination(totalItems) {
   // Các nút số trang
   for (let i = 1; i <= totalPages; i++) {
     const pageBtn = document.createElement("button");
-    pageBtn.className = `page-btn ${i === currentPage ? "ACTIVE" : ""}`;
+    pageBtn.className = `page-btn ${i === currentPage ? "active" : ""}`;
     pageBtn.innerText = i;
     pageBtn.onclick = () => {
       currentPage = i;
@@ -218,6 +325,58 @@ function renderPagination(totalItems) {
     renderTable();
   };
   paginationContainer.appendChild(nextBtn);
+}
+
+function validateCategoryCode(catCodeValue, currentId = null) {
+    const categories = JSON.parse(localStorage.getItem('categories')) || [];
+    const code = catCodeValue.trim();
+
+    const spaceRegex = /\s/;
+    if (spaceRegex.test(code)) {
+        return false;
+    }
+
+    const isDuplicate = categories.some(item => {
+        // So sánh viết hoa để DM01 và dm01 là trùng nhau
+        const isSameCode = item.category_code.trim().toUpperCase() === code.toUpperCase();
+        
+        // Nếu đang sửa (edit), bỏ qua chính bản ghi đang sửa
+        if (currentId !== null) {
+            return isSameCode && item.id !== currentId;
+        }
+        return isSameCode;
+    });
+
+    if (isDuplicate) {
+        return false;
+    }
+
+    return true;
+}
+
+function validateCategoryName(catNameValue, currentId = null) {
+    // 1. Lấy danh sách từ LocalStorage
+    const categories = JSON.parse(localStorage.getItem('categories')) || [];
+
+    // 2. Kiểm tra trùng tên
+    // .some sẽ trả về true nếu tìm thấy ít nhất 1 phần tử thỏa mãn điều kiện
+    const isDuplicate = categories.some(item => {
+        // Chuyển cả 2 về chữ thường để so sánh không phân biệt hoa thường
+        const isSameName = item.category_name.trim().toLowerCase() === catNameValue.toLowerCase();
+        
+        // Nếu là hàm EDIT: phải loại trừ chính nó ra (không so sánh với chính mình qua ID)
+        if (currentId !== null) {
+            return isSameName && item.id !== currentId;
+        }
+        
+        return isSameName;
+    });
+
+    if (isDuplicate) {
+        return false; // Trả về false để dừng việc lưu dữ liệu
+    }
+
+    return true; // Tên hợp lệ
 }
 
 // 3. Xử lý mở/đóng Modal
@@ -250,6 +409,11 @@ formAdd.onsubmit = (e) => {
         catIdError.style.display = "block";
         catIdInput.classList.add("input-error");
         isValid = false;
+    } else if (!validateCategoryCode(catIdValue)) {
+        catIdError.innerText = "Mã danh mục đã tồn tại!";
+        catIdError.style.display = "block";
+        catIdInput.classList.add("input-error");
+        isValid = false;
     } else {
         catIdError.style.display = "none";
         catIdInput.classList.remove("input-error");
@@ -258,6 +422,11 @@ formAdd.onsubmit = (e) => {
     // 3. Validate Tên danh mục
     if (catNameValue === "") {
         catNameError.innerText = "Tên danh mục không được để trống";
+        catNameError.style.display = "block";
+        catNameInput.classList.add("input-error");
+        isValid = false;
+    } else if (!validateCategoryName(catNameValue)) {
+        catNameError.innerText = "Tên danh mục đã tồn tại!";
         catNameError.style.display = "block";
         catNameInput.classList.add("input-error");
         isValid = false;
@@ -292,7 +461,7 @@ formAdd.onsubmit = (e) => {
 
         categories.push(newCategory);
         localStorage.setItem("categories", JSON.stringify(categories));
-
+        showToast("Thành công", "Thêm danh mục thành công");
         // Reset và đóng modal
         renderTable();
         formAdd.reset();
@@ -325,8 +494,13 @@ function deleteCategory(id) {
   const categories = JSON.parse(localStorage.getItem("categories"));
   const category = categories.find((c) => c.id == id);
 
+  if (categories.length === 1) {
+    alert("Không thể xóa! Hệ thống phải có ít nhất một danh mục.");
+    return;
+  }
+
   // Hiển thị tên danh mục vào câu hỏi
-  deleteTargetName.innerText = category.category_name;;
+  deleteTargetName.innerText = category.category_name;
   modalConfirm.classList.add("show");
 }
 
@@ -370,7 +544,7 @@ btnConfirmDelete.onclick = () => {
     modalConfirm.classList.remove("show"); // Đóng modal xác nhận
 
     // Gọi thông báo thành công ở đây
-    showToast("Thành công", "Xóa sản phẩm thành công");
+    showToast("Thành công", "Xóa danh mục thành công");
 
     idToDelete = null;
   }
@@ -435,7 +609,12 @@ formEdit.onsubmit = (e) => {
     nameError.style.display = "block";
     document.getElementById("editCatName").classList.add("input-error");
     return;
-  }
+  } else if (!validateCategoryName(newName, id)) {
+        nameError.innerText = "Tên danh mục đã tồn tại!";
+        nameError.style.display = "block";
+        document.getElementById("editCatName").classList.add("input-error");
+        return;
+    }
 
   // 3. Tìm và cập nhật mảng
   let categories = JSON.parse(localStorage.getItem("categories")) || [];

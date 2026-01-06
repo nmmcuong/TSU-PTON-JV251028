@@ -1,48 +1,73 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quản lý Danh mục - Ecommerce</title>
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/dashboard.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
     <div class="app-container">
-        <aside class="sidebar">
-            <div class="logo">
-                <i class="fa-solid fa-fire"></i> Ecommerce
-            </div>
-            <nav class="menu">
-                <a href="../pages/dashboard.html" class="menu-item active"><i class="fa-solid fa-house"></i> Thống kê</a>
-                <a href="../pages/category-manager.html" class="menu-item"><i class="fa-solid fa-layer-group"></i> Danh mục</a>
-                <a href="../pages/product-manager.html" class="menu-item"><i class="fa-solid fa-box"></i> Sản phẩm</a>
-            </nav>
-        </aside>
+      <aside class="sidebar">
+        <div class="logo"><i class="fa-solid fa-fire"></i> Ecommerce</div>
+        <nav class="menu">
+          <a href="../pages/dashboard.html" class="menu-item active"
+            ><i class="fa-solid fa-house"></i> Thống kê</a
+          >
+          <a href="../pages/category-manager.html" class="menu-item"
+            ><i class="fa-solid fa-layer-group"></i> Danh mục</a
+          >
+          <a href="../pages/product-manager.html" class="menu-item"
+            ><i class="fa-solid fa-box"></i> Sản phẩm</a
+          >
+        </nav>
+      </aside>
 
-        <main class="main-content">
-            <header class="top-header">
-                <div class="header-right">
-                    <i class="fa-regular "><img src="../public/icon/bell.png" alt=""></i>
-                    <div class="user-profile" style="position: relative; cursor: pointer;">
-                        <img src="../public/img/cat4.webp" alt="Avatar" class="avatar">
-                    </div>
-                </div>
-            </header>
-            <section class="content-wrapper">
-                <div class="content-header">
-                    <h2>Thống kê</h2>
-                    <div class="logout-dropdown" id="logoutDropdown">
-                      <a href="login.html" class="logout-link">
-                        <i class="fa-solid fa-right-from-bracket"></i>
-                        <span>Log out</span>
-                      </a>
-                    </div>
-                </div>
-                
-            </section>
-        </main>
-<script src="../js/dashboard.js" defer></script>
-</body>
+      <main class="main-content">
+        <header class="top-header">
+          <div class="header-right">
+            <i class="fa-regular"
+              ><img src="../public/icon/bell.png" alt=""
+            /></i>
+            <div
+              class="user-profile"
+              style="position: relative; cursor: pointer"
+            >
+              <img src="../public/img/cat4.webp" alt="Avatar" class="avatar" />
+            </div>
+          </div>
+        </header>
+        <section class="content-wrapper">
+          <div class="content-header">
+            <h2>Thống kê</h2>
+            <div class="logout-dropdown" id="logoutDropdown">
+              <a class="logout-link" style="cursor: pointer">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Log out</span>
+              </a>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div id="logoutModal" class="modal" style="display: none">
+      <div class="modal-content">
+        <h3>Xác nhận đăng xuất</h3>
+        <p>Bạn có chắc chắn muốn đăng xuất khỏi hệ thống không?</p>
+        <div class="modal-buttons">
+          <button id="btnCancelLogout" class="btn-secondary">Hủy bỏ</button>
+          <button id="btnConfirmLogout" class="btn-danger">
+            Đăng xuất ngay
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="../js/dashboard.js" defer></script>
+  </body>
 </html>
