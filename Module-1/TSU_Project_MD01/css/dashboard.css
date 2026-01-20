@@ -1,0 +1,197 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+}
+
+.app-container {
+    display: flex; 
+    min-height: 100vh;
+}
+
+/* 1. SIDEBAR */
+.sidebar {
+    width: 240px;
+    background-color: #f1f3f5;
+    padding: 20px 0;
+    border-right: 1px solid #e9ecef;
+}
+
+.logo {
+    padding: 0 20px 30px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #343a40;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo i { color: #e03131; }
+
+.menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-item {
+    padding: 12px 20px;
+    text-decoration: none;
+    color: #495057;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.menu-item.active {
+    background-color: #dbeafe;
+    color: #2563eb;
+    border-radius: 0 8px 8px 0;
+    margin-right: 10px;
+}
+
+/* 2. MAIN CONTENT */
+.main-content {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+}
+
+.top-header {
+    height: 60px;
+    background: #fff;
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center;
+    padding: 0 30px;
+    border-bottom: 1px solid #eee;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.avatar {
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+}
+
+/* 3. NỘI DUNG TRONG */
+.content-wrapper {
+    padding: 30px;
+}
+
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.profile-group {
+    position: relative;
+    cursor: pointer;
+}
+
+.profile-group {
+    position: relative;
+    cursor: pointer;
+}
+
+
+.logout-dropdown {
+    display: none; 
+    position: absolute;
+    
+    width: 240px;
+    height: 44px;
+    top: 56px; 
+    left: 85%;  
+    
+    background-color: #ffffff;
+    border-radius: 8px; 
+    border: 1px solid #e2e8f0; 
+    
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    
+    display: flex; 
+    align-items: center;
+}
+
+.logout-dropdown.active {
+    display: flex !important;
+}
+
+.logout-link {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 16px; 
+    gap: 12px;
+    text-decoration: none;
+    color: #475569;
+    font-size: 14px;
+    transition: background 0.2s;
+    border-radius: 8px; 
+}
+.logout-link:hover {
+    background-color: #f8fafc;
+}
+
+/* Style cho Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.modal-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn-secondary {
+    background: #ccc;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-danger {
+    background: #ff4d4f;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="vi">
   <head>
@@ -256,3 +257,263 @@
     <script src="../js/category-manager.js" defer></script>
   </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản lý Danh mục - Ecommerce</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/category-manager.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="app-container">
+      <aside class="sidebar">
+        <div class="logo"><i class="fa-solid fa-fire"></i> Ecommerce</div>
+        <nav class="menu">
+          <a href="../pages/dashboard.html" class="menu-item"
+            ><i class="fa-solid fa-house"></i> Thống kê</a
+          >
+          <a href="../pages/category-manager.html" class="menu-item active"
+            ><i class="fa-solid fa-layer-group"></i> Danh mục</a
+          >
+          <a href="../pages/product-manager.html" class="menu-item"
+            ><i class="fa-regular fa-folder"></i> Sản phẩm</a
+          >
+        </nav>
+      </aside>
+
+      <main class="main-content">
+        <header class="top-header">
+          <div class="header-right">
+            <i class="fa-regular"
+              ><img
+                href="../pages/index.html"
+                src="../public/icon/bell.png"
+                alt=""
+            /></i>
+            <img src="../public/img/cat4.webp" alt="Avatar" class="avatar" />
+          </div>
+        </header>
+
+        <section class="content-wrapper">
+          <div class="content-header">
+            <h2>Danh mục</h2>
+            <button class="btn-primary">Thêm mới danh mục</button>
+          </div>
+
+          <div class="filter-bar">
+            <select class="filter-select" id="filterStatus">
+              <option class="custom-option" class="custom-option" value="ALL">
+                Tất cả
+              </option>
+              <option class="custom-option" value="ACTIVE">
+                Đang hoạt động
+              </option>
+              <option class="custom-option" value="INACTIVE">
+                Ngừng hoạt động
+              </option>
+            </select>
+
+            <div class="search-box">
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="Tìm kiếm danh mục theo tên"
+              />
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+          </div>
+
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>
+                    Mã danh mục
+                    <i class="fa-solid fa-arrow-down" id="btnSortCode"></i>
+                  </th>
+                  <th>
+                    Tên danh mục
+                    <i class="fa-solid fa-arrow-down" id="btnSortName"></i>
+                  </th>
+                  <th>Trạng thái</th>
+                  <th>Chức năng</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <!-- <td>DM001</td>
+                                <td>Quần áo</td>
+                                <td><span class="status active">Đang hoạt động</span></td>
+                                <td class="actions">
+                                    <i class="fa-solid fa-trash btn-delete"></i>
+                                    <i class="fa-solid fa-pencil btn-edit"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>DM002</td>
+                                <td>Kính mắt</td>
+                                <td><span class="status inactive">Ngừng hoạt động</span></td>
+                                <td class="actions">
+                                    <i class="fa-solid fa-trash btn-delete"></i>
+                                    <i class="fa-solid fa-pencil btn-edit"></i>
+                                </td> -->
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="pagination">
+            <button class="page-btn">
+              <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <!-- <button class="page-btn">1</button>
+                    <button class="page-btn">2</button>
+                    <button class="page-btn active">3</button>
+                    <button class="page-btn">4</button>
+                    <button class="page-btn">...</button>
+                    <button class="page-btn">20</button> -->
+            <button class="page-btn">
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </section>
+      </main>
+    </div>
+    <div class="modal" id="modalAdd">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Thêm mới danh mục</h3>
+          <span class="close-btn" id="btnClose">&times;</span>
+        </div>
+        <form id="formAddCategory">
+          <div class="form-group">
+            <label>Mã danh mục <span class="required">*</span></label>
+            <input type="text" id="catId" placeholder="Nhập mã danh mục" />
+            <span class="error-message" id="catIdError"></span>
+          </div>
+          <div class="form-group">
+            <label>Tên danh mục <span class="required">*</span></label>
+            <input type="text" id="catName" placeholder="Nhập tên danh mục" />
+            <span class="error-message" id="catNameError"></span>
+          </div>
+          <div class="form-group">
+            <label>Trạng thái</label>
+            <div class="radio-group">
+              <label class="radio-item">
+                <input type="radio" name="status" value="ACTIVE" checked />
+                <span class="custom-radio"></span>
+                Đang hoạt động
+              </label>
+
+              <label class="radio-item">
+                <input type="radio" name="status" value="INACTIVE" />
+                <span class="custom-radio"></span>
+                Ngừng hoạt động
+              </label>
+            </div>
+          </div>
+
+          <div class="form-footer-modal">
+            <button type="button" class="btn-cancel" id="btnCancel">Hủy</button>
+            <button type="submit" class="btn-submit">Thêm</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="modal" id="modalConfirm">
+      <div class="modal-content confirm-box">
+        <div class="confirm-icon">
+          <i class="fa-solid fa-exclamation"></i>
+        </div>
+        <div class="confirm-body">
+          <h3>Xác nhận</h3>
+          <p>
+            Bạn có chắc chắn muốn xóa danh mục
+            <strong id="deleteTargetName">...</strong> khỏi hệ thống không?
+          </p>
+        </div>
+        <div class="form-footer-modal">
+          <button type="button" class="btn-cancel" id="btnCancelDelete">
+            Hủy
+          </button>
+          <button
+            type="button"
+            class="btn-delete-confirm"
+            id="btnConfirmDelete"
+          >
+            Xóa
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="toast-container"></div>
+    <div class="modal" id="modalEdit">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Cập nhật danh mục</h3>
+          <span class="close-btn" id="btnCloseEdit">&times;</span>
+        </div>
+        <form id="formEditCategory">
+          <div class="form-group">
+            <label>Mã danh mục <span class="required">*</span></label>
+            <input
+              type="text"
+              id="editCatId"
+              readonly
+              style="background-color: #f3f4f6"
+            />
+          </div>
+          <div class="form-group">
+            <label>Tên danh mục <span class="required">*</span></label>
+            <input
+              type="text"
+              id="editCatName"
+              placeholder="Nhập tên danh mục"
+            />
+            <span class="error-message" id="editCatNameError"></span>
+          </div>
+          <div class="radio-group">
+            <label class="radio-item">
+              <input
+                type="radio"
+                name="editStatus"
+                id="editStatusActive"
+                value="ACTIVE"
+                checked
+              />
+              <span class="custom-radio"></span>
+              Đang hoạt động
+            </label>
+
+            <label class="radio-item">
+              <input
+                type="radio"
+                name="editStatus"
+                id="editStatusInactive"
+                value="INACTIVE"
+              />
+              <span class="custom-radio"></span>
+              Ngừng hoạt động
+            </label>
+          </div>
+
+          <div class="form-footer-modal">
+            <button type="button" class="btn-cancel" id="btnCancelEdit">
+              Hủy
+            </button>
+            <button type="submit" class="btn-submit">Lưu</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="../js/category-manager.js" defer></script>
+  </body>
+</html>
+>>>>>>> af7eab56334c3ecae8ce3f3e8e96e87d1c474475
