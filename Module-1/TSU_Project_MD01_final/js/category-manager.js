@@ -450,6 +450,7 @@ formAdd.onsubmit = (e) => {
         };
 
         categories.push(newCategory);
+
         localStorage.setItem("categories", JSON.stringify(categories));
         showToast("Thành công", "Thêm danh mục thành công");
         // Reset và đóng modal

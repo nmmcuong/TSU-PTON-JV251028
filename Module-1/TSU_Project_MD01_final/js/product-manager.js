@@ -318,7 +318,7 @@ if (!localStorage.getItem("products")) {
 }
 
 let currentPage = 1;
-const rowsPerPage = 8; 
+const rowsPerPage = 10; 
 let productToDeleteId = null;
 
 const productTableBody = document.getElementById("productTableBody");
