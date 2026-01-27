@@ -34,3 +34,17 @@ select * from products where product_name  like 'Sam%';
 
 #Hiển thị sản phẩm không thuộc loại Phone
 select * from products where category != 'Phone';
+
+#Cập nhật & xóa dữ liệu (UPDATE – DELETE)
+#Giảm giá 5% cho các sản phẩm thuộc loại Laptop
+SET SQL_SAFE_UPDATES = 0;
+update products set price = price * 0.005 where category = 'Laptop';
+#Xóa các sản phẩm có số lượng tồn kho bằng 0
+select * from products;
+update products set quantitiy = 0 where product_name = 'iPad Air M3' ;
+delete from products where quantitiy = 0;
+select * from products;
+
+#Kiểm tra lại bảng sau mỗi thao tác bằng SELECT
+
+
