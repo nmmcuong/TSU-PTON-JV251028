@@ -2,7 +2,7 @@ package Ex6;
 
 import java.util.List;
 
-class Product {
+public class Product {
     private String name;
     private double price;
 

@@ -2,7 +2,7 @@ package Ex6;
 
 import java.util.List;
 
-interface ProductProcessor {
+public interface ProductProcessor {
     // Phương thức abstract: Phải được cài đặt ở lớp con
     double calculateTotalValue(List<Product> products);
 
