@@ -1,0 +1,302 @@
+
+<head>
+    <meta charset="UTF-8">
+    <title>Course Management</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+	<style>
+	    /* 1. Làm màu icon giống màu placeholder */
+	    .search-icon {
+	        color: #6c757d; /* Màu xám đặc trưng của placeholder */
+	    }
+
+	    /* 2. Xóa viền giữa icon và input khi đang click (focus) */
+	    .input-group .form-control:focus {
+	        border-color: #ced4da; /* Màu viền mặc định */
+	        box-shadow: none;      /* Xóa hiệu ứng sáng mặc định của Bootstrap */
+	    }
+
+	    /* Đảm bảo viền icon cũng thay đổi màu khi input focus */
+	    .input-group:focus-within .input-group-text {
+	        border-color: #86b7fe; /* Màu xanh khi focus giống input */
+	        border-right: none;    /* Giữ viền phải trống */
+	    }
+	    
+	    .input-group:focus-within .form-control {
+	        border-color: #86b7fe;
+	    }
+	</style>
+</head>
+
+<body class="bg-light">
+
+<!-- HEADER -->
+<div class="container mt-4">
+    <div class="d-flex align-items-center justify-content-between p-3 mb-4 text-white" style="background-color: #0066cc;">
+        <div><i class="bi bi-mortarboard-fill me-2" style="font-size: 2rem;"></i><strong>Course Management</strong></div>
+        <div><a href="/" class="text-white text-decoration-none"><i class="bi bi-house-fill me-1"></i> Trang chủ</a></div>
+    </div>
+	
+    <div class="card p-4 shadow-sm">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h3>Danh sách khóa học</h3>
+           <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#courseModal" onclick="document.getElementById('courseModalLabel').innerText = 'Thêm khóa học';">
+			    <i class="bi bi-plus-lg"></i> Thêm khóa học mới
+			</button>
+        </div>
+		
+		<form th:action="@{/}" method="get" class="d-flex mb-3">
+		    <div class="input-group me-2" style="max-width: 400px;"> 
+		        <span class="input-group-text bg-white border-end-0">
+		            <i class="bi bi-search search-icon"></i>
+		        </span>
+		        <input type="text" name="keyword" class="form-control border-start-0" 
+		               th:value="${keyword}" 
+		               placeholder="Tìm kiếm theo tên khóa học hoặc giảng viên...">
+		    </div>
+		    <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+		</form>
+		
+
+		<table class="table table-bordered align-middle">
+		    <thead class="table-light">
+		        <tr class="text-center">
+		            <th>ID</th>
+		            <th>Ảnh đại diện</th>
+		            <th>Tên khóa học</th>
+		            <th>Giảng viên</th>
+		            <th>Thời lượng (giờ)</th>
+		            <th>Thao tác</th>
+		        </tr>
+		    </thead>
+		    <tbody class="text-center">
+				<tr th:if="${coursePage.isEmpty() && (keyword == null || keyword.isEmpty())}">
+				    <td colspan="6" style="text-align: center; padding: 20px;">
+				         <strong>Chưa có khóa học nào trong hệ thống</strong>
+				    </td>
+				</tr>
+				
+				<tr th:if="${coursePage.content.isEmpty() && keyword != null && !keyword.isEmpty()}">
+				        <td colspan="6" class="text-center text-muted">
+				            <div class="py-4">
+				                <i class="bi bi-search" style="font-size: 2rem;"></i>
+				                <p>Không tìm thấy khóa học nào khớp với từ khóa <strong>"<span th:text="${keyword}"></span>"</strong></p>
+				                <a href="/" class="btn btn-outline-primary btn-sm">Quay lại danh sách</a>
+				            </div>
+				        </td>
+				 </tr>
+				 
+		        <tr th:each="c : ${coursePage.content}">
+		            <td th:text="${c.id}">1</td>
+					<td>
+					    <img th:src="@{${c.thumbnail}}" alt="Course Image" style="width: 80px; height: 50px; object-fit: cover;">
+					</td>
+		            <td class="text-start fw-bold text-primary" th:text="${c.courseName}">Tên khóa học</td>
+		            <td th:text="${c.instructor}">Tên giảng viên</td>
+		            <td th:text="${c.duration}">60</td>
+		            <td>
+						<button type="button" class="btn btn-warning btn-sm" 
+						        th:onclick="editCourse([[${c.id}]], [[${c.courseName}]], [[${c.instructor}]], [[${c.duration}]])">
+						    <i class="bi bi-pencil"></i> Sửa
+						</button>
+		                <a th:href="@{/delete/{id}(id=${c.id}, page=${coursePage.number}, keyword=${keyword})}" th:data-id="${c.id}" class="btn btn-danger btn-sm" 
+		                   onclick="prepareDelete(event, this)">
+		                    <i class="bi bi-trash"></i> Xóa
+		                </a>
+		            </td>
+		        </tr>
+				
+		    </tbody>
+		</table>
+
+        <div class="d-flex justify-content-between align-items-center">
+            <span>Hiển thị 1 đến 5 của 5 khóa học</span>
+			<nav>
+			    <ul class="pagination pagination-sm justify-content-center">
+					<li class="page-item" th:classappend="${coursePage.first} ? 'disabled'">
+					    <a class="page-link" th:href="@{/(page=${coursePage.number - 1}, keyword=${keyword})}">&laquo;</a>
+					</li>
+
+					<li class="page-item" th:each="i : ${#numbers.sequence(0, coursePage.totalPages - 1)}" 
+					    th:classappend="${i == coursePage.number} ? 'active'">
+					    <a class="page-link" th:href="@{/(page=${i}, keyword=${keyword})}" th:text="${i + 1}">1</a>
+					</li>
+
+					<li class="page-item" th:classappend="${coursePage.last} ? 'disabled'">
+					    <a class="page-link" th:href="@{/(page=${coursePage.number + 1}, keyword=${keyword})}">&raquo;</a>
+					</li>
+			    </ul>
+			</nav>
+        </div>
+    </div>
+
+    <hr>
+    <div class="d-flex justify-content-between text-muted mt-3">
+        <span><i class="bi bi-mortarboard"></i> Course Management System</span>
+        <span>© 2025 All rights reserved.</span>
+    </div>
+</div>
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Xác nhận</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Bạn có chắc chắn muốn xóa khóa học này?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light border" data-bs-dismiss="modal">Cancel</button>
+        <a id="confirmDeleteBtn" href="#" class="btn btn-primary">OK</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="courseModal" tabindex="-1" aria-labelledby="courseModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+
+		<h5 class="modal-title" id="courseModalLabel">Thêm khóa học</h5>
+
+        <a href="/" class="btn-close" aria-label="Close"></a>
+      </div>
+      <form th:action="@{/save}" th:object="${course}" method="post" enctype="multipart/form-data">
+		<input type="hidden" id="hasErrorFlag" th:value="${hasError}">
+		<input type="hidden" name="currentPage" th:value="${coursePage.number}">
+		<input type="hidden" name="keyword" th:value="${keyword}">
+		
+        <div class="modal-body">
+			
+            <input type="hidden" th:field="*{id}">
+			<div class="mb-3">
+				            <label class="form-label">Tên khóa học 
+								<span style="color: red;">*</span></label>
+				            <input type="text" th:field="*{courseName}" class="form-control" 
+				                   th:classappend="${#fields.hasErrors('courseName')} ? 'is-invalid'">
+				            <div class="text-danger" th:if="${#fields.hasErrors('courseName')}" th:errors="*{courseName}"></div>
+							<small class="text-danger fw-bold" th:unless="${#fields.hasErrors('courseName')}">
+							    Độ dài từ 5 đến 100 ký tự.
+							</small>
+				        </div>
+
+				        <div class="mb-3">
+				            <label class="form-label">Giảng viên 
+								<span style="color: red;">*</span></label>
+				            <input type="text" th:field="*{instructor}" class="form-control"
+				                   th:classappend="${#fields.hasErrors('instructor')} ? 'is-invalid'">
+				            <div class="text-danger fw-bold" th:if="${#fields.hasErrors('instructor')}" th:errors="*{instructor}"></div>
+				        </div>
+
+				        <div class="mb-3">
+				            <label class="form-label">Thời lượng (giờ) 
+								<span style="color: red;">*</span></label>
+				            <input type="number" th:field="*{duration}" class="form-control"
+				                   th:classappend="${#fields.hasErrors('duration')} ? 'is-invalid'">
+				            <div class="text-danger fw-bold" th:if="${#fields.hasErrors('duration')}" th:errors="*{duration}"></div>
+				            <small class="text-muted" th:unless="${#fields.hasErrors('duration')}">Số nguyên dương (>0) và ≤ 500 giờ.</small>
+				        </div>
+
+				        <div class="mb-3">
+				            <label class="form-label">Ảnh đại diện</label>
+				            <input type="file" name="file" class="form-control">
+				            <small class="text-muted">Định dạng: .jpg, .png (Max 5MB)</small>
+				        </div>
+
+				        <div class="mt-4">
+				            <button type="submit" class="btn btn-success">Lưu</button>
+				            <a href="/" class="btn btn-secondary">Hủy</a>
+				        </div>
+						
+			</div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script th:if="${successMessage}">
+    document.addEventListener("DOMContentLoaded", function() {
+        var toastEl = document.getElementById('successToast');
+        var toast = new bootstrap.Toast(toastEl, {
+            delay: 3000 // Tự đóng sau 3 giây
+        });
+        toast.show();
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var hasErrorFlag = document.getElementById('hasErrorFlag');
+        
+        // Kiểm tra xem có lỗi không
+        if (hasErrorFlag && hasErrorFlag.value === 'true') {
+            // Dùng bootstrap Modal constructor để mở
+            var myModal = new bootstrap.Modal(document.getElementById('courseModal'), {
+                backdrop: 'static', // Ngăn không cho đóng khi click ra ngoài
+                keyboard: false
+            });
+            myModal.show();
+        }
+    });
+</script>
+
+<script>
+    function editCourse(id, name, instructor, duration) {
+		
+		document.getElementById('courseModalLabel').innerText = 'Cập nhật khóa học';
+        // 1. Lấy form trong Modal
+        var form = document.querySelector("#courseModal form");
+        
+        // 2. Điền dữ liệu vào các ô tương ứng
+        form.querySelector('input[name="id"]').value = id;
+        form.querySelector('input[name="courseName"]').value = name;
+        form.querySelector('input[name="instructor"]').value = instructor;
+        form.querySelector('input[name="duration"]').value = duration;
+        
+        // 3. Hiện Modal
+        var myModal = new bootstrap.Modal(document.getElementById('courseModal'));
+        myModal.show();
+    }
+
+    // Hàm này dùng cho nút "Thêm mới" để xóa sạch dữ liệu cũ
+    function resetForm() {
+        var form = document.querySelector("#courseModal form");
+        form.reset();
+        form.querySelector('input[name="id"]').value = ""; 
+    }
+</script>
+<script>
+    function prepareDelete(event, button) {
+        event.preventDefault(); // không cho load trang ngay
+		var deleteUrl = button.getAttribute("href");
+        //var courseId = button.getAttribute("data-id");
+        //var deleteUrl = "/delete/" + courseId;
+        
+		
+        document.getElementById("confirmDeleteBtn").setAttribute("href", deleteUrl);
+        
+        var myModal = new bootstrap.Modal(document.getElementById('deleteModal'));
+        myModal.show();
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<div class="toast-container position-fixed top-0 start-50 translate-middle-x p-3">
+    <div id="successToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body">
+                <i class="bi bi-check-circle-fill"></i> <span id="toastMessage" th:text="${successMessage}"></span>
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+</div>
+
+</body>
+
